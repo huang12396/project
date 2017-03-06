@@ -19,7 +19,7 @@ img {
     max-width: 100%
 }
 
-body {    
+body {
     font-size: 13px;
 }
 
@@ -50,14 +50,14 @@ body {
 
 .bg {
     background: url(../img/background.jpg);
-    width: 99%;    
+    width: 99%;
     height: 700px;
     position: relative;
 }
 .login{
-    float: right;
+    
     width: 500px auto;
-    margin-right: 60px;
+
     padding: 50px 40px;
 }
 
@@ -166,4 +166,3 @@ body {
     font-weight: 400;
     color: #FF0000;
 }
-
