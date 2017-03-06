@@ -28,32 +28,36 @@
                 <form class="form-horizontal" role="form">
                     <!--账号-->
                     <div class="form-group">
-                        <label for="name" class="col-sm-3 control-lable">用户名</label>
-                        <div class="col-sm-8">
+                        <label for="name" class="col-sm-2 control-lable">用户名</label>
+                        <div class="col-sm-9">
                             <input type="text" id="name" class="form-control" placeholder="请输入用户名" />
                         </div>
                     </div>
                     <!--密码-->
                     <div class="form-group">
-                        <label for="password" class="col-sm-3 control-lable">密码</label>
-                        <div class="col-sm-8 ">
+                        <label for="password" class="col-sm-2 control-lable">密码</label>
+                        <div class="col-sm-9 ">
                             <input type="password" id="password" class="form-control" placeholder="请输入密码">
                         </div>
                     </div>
                     <!--自动登录-->
                     <div class="form-group">
-                        <div class="col-sm-offset-3 col-sm-5">
+                        <div class="col-sm-offset-2 col-sm-7">
                             <div class="checkbox">
-                                <label>
+                                <label class="auto-login">
                                     <input type="checkbox">自动登录
+
                                 </label>
+                                <label class="forget-password">
+                                  <a  href="#">忘记密码</a>
+                                  </label>
                             </div>
                         </div>
                     </div>
                     <!--登陆按钮-->
                     <div class="form-group">
-                        <div class="forgot col-sm-offset-3 col-sm-9">
-                            <a href="#">忘记密码</a>
+                        <div class="forgot col-sm-offset-2 col-sm-8">
+
                             <input class="bt1" type="submit" value="登录">
                         </div>
                     </div>

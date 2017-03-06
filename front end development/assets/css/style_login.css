@@ -116,18 +116,19 @@ body {
 .forgot input[type="submit"] {
     background-color:#FFFFFF;
     color: #003333;
-    font-size: 18px;
-    font-weight: 400;
+    font-size: 22px;
+    font-weight: 400px;
     padding: 6px 10px;
     cursor: pointer;
     border-radius: 5px;
     margin: 0px 0px 0px 5px;
     outline: none;
     border: none;
+    width: 100%;
 }
 
 .forgot input[type="submit"]:hover {
-    background-color: #FF6600;
+    background-color: #ff0000;
     transition: 1s all;
 }
 .login-bottom {
@@ -165,4 +166,7 @@ body {
     font-size: 15px;
     font-weight: 400;
     color: #FF0000;
+}
+.forget-password{
+  float: right;
 }
