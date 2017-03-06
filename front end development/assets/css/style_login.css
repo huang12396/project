@@ -101,17 +101,21 @@ body {
     width: 88%;
 }
 
-.forgot a {
-    font-size: 13px;
+.forget-password a {
+    font-size: 15px;
     font-weight: 500;
     color: #0066FF;
     display: inline-block;
-    border-right: 2px solid #0066FF;
+    border-left: 2px solid #0066FF;
     padding: 0 12px 0 0;
 }
 
 .forgot a:hover {
     color: #000000;
+}
+.auto-login input[type="checkbox"]{
+    font-size: 15px;
+
 }
 
 .forgot input[type="submit"] {
