@@ -53,6 +53,7 @@ body {
     width: 99%;
     height: 700px;
     position: relative;
+    height: 650px;
 }
 .login{
     margin-top: 85px;
@@ -158,7 +159,7 @@ body {
 
 .copyright {
     text-align: center;
-    margin: 15px;
+    margin: 50px;
     padding: 5px 0px 0px 0px;
 }
 
