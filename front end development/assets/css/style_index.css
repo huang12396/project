@@ -1,14 +1,11 @@
-.daohang-top{
-  text-align: right;
-}
-.top-right a{
+.top-right a{            /*顶部导航栏右侧：我的账户，购物车。。*/
   margin-right: 2em;
 }
-.top-right{
+.top-right{              /*顶部导航栏右侧：我的账户，购物车。。*/
   text-align: right;
 }
 
-.top{
+.top{                    /*顶部导航栏*/
   background-color: rgb(203, 203, 203);
   height: 20px;
 }
