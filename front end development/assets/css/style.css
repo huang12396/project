@@ -47,7 +47,7 @@ body {
 }
 
 .carousel .item {
-    height: 330px;
+    height: auto;
     background-color: #000;
 }
 
