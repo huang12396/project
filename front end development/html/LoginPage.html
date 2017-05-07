@@ -4,23 +4,93 @@
 <head>
     <meta charset="utf-8" http-equiv="content-type" content="text/html">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    <link rel="stylesheet" type="text/css" href="assets/lib/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/lib/css/bootstrap.min.css">
     <!--[if lt IE 9]>
     <script src="assets/lib/html5shiv/html5shiv.js"></script>
     <script src="assets/lib/respond/respond.min.js"></script>
     <![endif]-->
-    <link rel="stylesheet" type="text/css" href="assets/css/style_login.css">
+    <link rel="stylesheet" type="text/css" href="..\assets\css\style_login.css">
     <title>LoginPage</title>
 </head>
 
 <body>
-    <div class="top">
-        <div class="top-logo"><img src="assets/img/logo.png">
-        </div>
-        <div class="top-reg">
-            <h5>欢迎来到本网站!<a href="#">请注册</a></h5>
-        </div>
-    </div>
+  <div class="top">
+      <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+          <div class="container-fluid">
+              <!--导航头部-->
+              <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+                      <span class="sr-only"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="../index.html" id="nav-brand-itheima"><img src="../assets/img/logo.png" alt="网站logo" />
+                  </a>
+              </div>
+              <!--导航菜单-->
+              <div class="" id="navbar-collapse">
+                  <ul class="nav navbar-nav">
+                      <li class=""><a href="../index.html">首页</a></li>
+                      <li class="dropdown">
+                          <a class="dropdown-toggle" data-toggle="dropdown" href="#">白酒馆<b class="caret"></b></a>
+                          <ul class="dropdown-menu">
+                              <li><a href="#">茅台</a></li>
+                              <li><a href="#">五粮液</a></li>
+                              <li><a href="#">泸州老窖</a></li>
+                          </ul>
+                      </li>
+                      <li class="dropdown">
+                      <a class="dropdown-toggle" data-toggle="dropdown" href="#">葡萄酒馆<b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                          <li><a href="#">红葡萄酒</a></li>
+                          <li><a href="#">白葡萄酒</a></li>
+                          <li><a href="#">起泡酒</a></li>
+                      </ul>
+                      </li>
+                      <li class="dropdown">
+                      <a class="dropdown-toggle" data-toggle="dropdown" href="#">洋酒馆<b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                          <li><a href="#">白兰地</a></li>
+                          <li><a href="#">威士忌</a></li>
+                          <li><a href="#">伏特加</a></li>
+                      </ul>
+                      </li>
+                      <li class="dropdown">
+                      <a class="dropdown-toggle" data-toggle="dropdown" href="#">啤酒馆<b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                          <li><a href="#">嘉士伯</a></li>
+                          <li><a href="#">百威</a></li>
+                          <li><a href="#">青岛</a></li>
+                      </ul>
+                      </li>
+                      <li><a href="#">选酒中心</a></li>
+                      <li class="dropdown">
+                          <a class="dropdown-toggle" data-toggle="dropdown" href="#">我的账户<b class="caret"></b></a>
+                          <ul class="dropdown-menu">
+                              <li><a href="#">账户资料</a></li>
+                              <li class="divider"></li>
+                              <li><a href="#">我的订单</a></li>
+                              <li><a href="#">物流跟踪</a></li>
+                          </ul>
+                      </li>
+                      <li><a href="#"><span class="glyphicon glyphicon-shopping-cart">购物车</span></a></li>
+                  </ul>
+                  <div>
+                      <form class="navbar-form navbar-right" role="search">
+                          <div class="input-group">
+                              <input type="text" class="form-control input-lg" placeholder="请输入"><span class="input-group-addon btn btn-primary">搜索</span>
+                          </div>
+                          <ul class="nav navbar-nav navbar-right">
+                              <li><a href="./RegPage.html"><span class="glyphicon glyphicon-user">注册</span></a></li>
+                              <li><a href="./LoginPage.html"><span class="glyphicon glyphicon-log-in">登录</span></a></li>
+                          </ul>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </nav>
+  </div>
     <div class="bg">
         <div class="col-sm-offset-6 col-sm-4 login">
             <div class="login-top">
@@ -65,7 +135,7 @@
             </div>
             <!--新用户注册-->
             <div class="login-bottom">
-                <h3>新用户&nbsp;<a href="#">注册</a></h3>
+                <h3>新用户&nbsp;<a href="./RegPage.html">注册</a></h3>
             </div>
         </div>
     </div>
@@ -73,8 +143,8 @@
     <div class="copyright">
         <p>Copyright&copy;2017.ZHBIT Gorker All rights reserved.</p>
     </div>
-    <script src="lib/jquery/jquery-1.11.0.min.js"></script>
-    <script src="lib/js/bootstrap.js"></script>
+    <script src="../assets/lib/jquery/jquery-1.11.0.min.js"></script>
+    <script src="../assets/lib/js/bootstrap.js"></script>
 </body>
 
 </html>
