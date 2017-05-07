@@ -98,10 +98,10 @@ a.addtocart {
     font-size: 1em;
     font-weight: 400;
     color: #FFF;
-    background-color: #D96B66;
+    background-color: #663300;
     padding: 10px 18px;
-    transition: 0.5s all ease;
-    /*0.5 秒的背景颜色渐变过渡*/
+    transition: 0.8s all ease;
+    /*0.8 秒的背景颜色渐变过渡*/
     border-radius: 3px;
     /*圆角边框*/
     text-decoration: none;
@@ -109,7 +109,7 @@ a.addtocart {
 }
 
 a.addtocart:hover {
-    background-color: #5fa022;
+    background-color: #00FF66;
 }
 .feature {
     padding: 30px 0;
