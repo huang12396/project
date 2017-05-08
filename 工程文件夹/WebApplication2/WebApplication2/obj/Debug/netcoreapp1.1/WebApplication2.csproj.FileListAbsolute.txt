@@ -1,0 +1,9 @@
+D:\project\工程文件夹\WebApplication2\WebApplication2\bin\Debug\netcoreapp1.1\WebApplication2.deps.json
+D:\project\工程文件夹\WebApplication2\WebApplication2\bin\Debug\netcoreapp1.1\WebApplication2.runtimeconfig.json
+D:\project\工程文件夹\WebApplication2\WebApplication2\bin\Debug\netcoreapp1.1\WebApplication2.runtimeconfig.dev.json
+D:\project\工程文件夹\WebApplication2\WebApplication2\bin\Debug\netcoreapp1.1\WebApplication2.dll
+D:\project\工程文件夹\WebApplication2\WebApplication2\bin\Debug\netcoreapp1.1\WebApplication2.pdb
+D:\project\工程文件夹\WebApplication2\WebApplication2\obj\Debug\netcoreapp1.1\WebApplication2.csprojResolveAssemblyReference.cache
+D:\project\工程文件夹\WebApplication2\WebApplication2\obj\Debug\netcoreapp1.1\WebApplication2.AssemblyInfo.cs
+D:\project\工程文件夹\WebApplication2\WebApplication2\obj\Debug\netcoreapp1.1\WebApplication2.dll
+D:\project\工程文件夹\WebApplication2\WebApplication2\obj\Debug\netcoreapp1.1\WebApplication2.pdb
