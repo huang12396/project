@@ -8,8 +8,10 @@ namespace WebApplication1.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Index(string returnUrl = null)
         {
+            ViewData["ReturnUrl"] = returnUrl;
+            ViewBag.Title = "主页";
             return View();
         }
 
@@ -32,5 +34,6 @@ namespace WebApplication1.Controllers
         {
             return View();
         }
+
     }
 }

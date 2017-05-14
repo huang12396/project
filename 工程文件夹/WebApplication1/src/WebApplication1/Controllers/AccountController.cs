@@ -21,5 +21,12 @@ namespace WebApplication1.Controllers
             ViewBag.Title = "登录";
             return View();
         }
+        public IActionResult Register(string returnUrl = null)
+        {
+            ViewData["ReturnUrl"] = returnUrl;
+            ViewBag.Title = "注册";
+            return View();
+        }
+
     }
 }
