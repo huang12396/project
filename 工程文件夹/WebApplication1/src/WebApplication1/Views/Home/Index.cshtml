@@ -87,8 +87,8 @@
                                 <input type="text" class="form-control input-lg" placeholder="请输入"><span class="input-group-addon btn btn-primary">搜索</span>
                             </div>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a href="html\RegPage.html"><span class="glyphicon glyphicon-user">注册</span></a></li>
-                                <li><a href="html\LoginPage.html"><span class="glyphicon glyphicon-log-in">登录</span></a></li>
+                                <li><a asp-action="Login"><span class="glyphicon glyphicon-user">注册</span></a></li>
+                                <li><a asp-controller="Account" asp-action="Login"><span class="glyphicon glyphicon-log-in">登录</span></a></li>
                             </ul>
                         </form>
                     </div>
