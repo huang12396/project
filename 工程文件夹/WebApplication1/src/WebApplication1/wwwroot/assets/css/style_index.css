@@ -1,9 +1,11 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 
 /*初始化*/
 
-a {
-    text-decoration: none;
+* {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
 }
 
 img {
@@ -12,6 +14,18 @@ img {
 
 body {
     font-size: 13 px;
+    line-height: 2em;
+    color: #666666;
+}
+
+
+/*导航栏*/
+
+.top {
+    background-color: #FFFFFF;
+    padding: 0.7em 0;
+    height: 60px;
+    margin-bottom: 0px;
 }
 
 .navbar-brand {
@@ -25,39 +39,292 @@ body {
     width: 200 px;
 }
 
-.top {
-    background-color: #FFFFCC;
-    padding: 0.7em 0;
-    height: 60px;
-    margin-bottom: 10px;
+.navbar-default {
+    box-shadow: 12px -5px 40px -12px;
+}
+
+.glyphicon {
+    font-size: 13px;
 }
 
 .body {
     padding-top: 100px;
 }
 
-.navbar-default {
-    box-shadow: 12px -5px 40px -12px;
+
+/*链接*/
+
+a {
+    text-decoration: none;
+    border: 0;
+    color: #666666;
+    text-decoration: none;
+    -webkit-transition-property: color;
+    -moz-transition-property: color;
+    -o-transition-property: color;
+    transition-property: color;
+    -webkit-transition-duration: .2s;
+    -webkit-transition-timing-function: ease-in;
+    -moz-transition-duration: .2s;
+    -moz-transition-timing-function: ease-in;
+    -o-transition-duration: .2s;
+    -o-transition-timing-function: ease-in;
+    transition-duration: .2s;
+    transition-timing-function: ease-in
 }
 
+a:hover {
+    color: #cd0606;
+    text-decoration: underline
+}
+
+.dh_nav {
+    z-index: 1;
+    position: relative;
+    width: 200px;
+    margin: 0px 50px 0 30px;
+}
+
+.dh_nac .dhbtn {
+    z-index: 1;
+    position: relative
+}
+
+.dh_nav .dhbtn h2 {
+    font-size: 16px;
+    box-shadow: 2px 0px 6px -2px #FF3333;
+}
+
+.dh_nav .dhbtn h2 a {
+    line-height: 36px;
+    background-color: #FF3333;
+    padding-left: 10px;
+    width: 200px;
+    display: block;
+    font-family: 微软雅黑, 黑体;
+    height: 36px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: normal
+}
+
+.dh_nav .dhbtn h2 a:hover {
+    background-color: #FF3333;
+    text-decoration: none;
+}
+
+
+/*一级导航*/
+
+.dh_nav .dhbtn ul {
+    z-index: 1;
+    position: all;
+    background-color: #FFFFFF;
+    width: 200px;
+    display: block;
+    top: 55px;
+    left: 15px;
+}
+
+.dh_nav .dhbtn ul li {
+    padding-bottom: 7px;
+    zoom: 1;
+    clear: both;
+    cursor: default
+}
+
+.dh_nav .dhbtn ul li .icon {
+    line-height: 35px;
+    background-color: #FF3366;
+    padding-left: 10px;
+    background-repeat: no-repeat;
+    background-position: right center;
+    height: 35px;
+    background-image: none
+}
+
+.dh_nav .dhbtn ul li .icon a {
+    font-family: 微软雅黑, 黑体;
+    color: #ffffff;
+    font-size: 14px;
+    -webkit-transition: color 0.1s ease-out 0s;
+    -moz-transition: color 0.1s ease-out 0s;
+    -ms-transition: color 0.1s ease-out 0s;
+    -o-transition: color 0.1s ease-out 0s;
+    transition: color 0.1s ease-out 0s
+}
+
+.dh_nav .dhbtn ul li .icon a i {
+    line-height: 25px;
+    margin-top: 5px;
+    width: 25px;
+    background-position: 0px 0px;
+    float: left;
+    height: 25px;
+    margin-right: 10px;
+    text-decoration: none
+}
+
+.dh_nav .dhbtn ul li.a1 .icon a i {
+    background-image: url(../img/liqueur_icon.png);
+}
+
+.dh_nav .dhbtn ul li.a2 .icon a i {
+    background-image: url(../img/wine_icon.png);
+}
+
+.dh_nav .dhbtn ul li.a3 .icon a i {
+    background-image: url(../img/foreign_icon.png);
+}
+
+.dh_nav .dhbtn ul li.a4 .icon a i {
+    background-image: url(../img/beer_icon.png);
+}
+
+.dh_nav .dhbtn ul li dl a {
+    line-height: 22px;
+    white-space: nowrap;
+    float: left;
+    color: #4B4B4B;
+    margin-left: 6px;
+    margin-right: 6px;
+    -webkit-transition: color 0.1s ease-out 0s;
+    -moz-transition: color 0.1s ease-out 0s;
+    -ms-transition: color 0.1s ease-out 0s;
+    -o-transition: color 0.1s ease-out 0s;
+    transition: color 0.1s ease-out 0s
+}
+
+.dh_nav .dhbtn ul li dt {
+    padding-left: 10px;
+    width: 30px;
+    float: left;
+    padding-top: 1px
+}
+
+.dh_nav .dhbtn ul li dd {
+    line-height: 22px;
+    width: 150px;
+    float: left;
+    padding-top: 2px
+}
+
+
+/*二级导航*/
+
+.dh_nav .dhbtn ul li .pop {
+    border-bottom: #969696 2px solid;
+    position: absolute;
+    border-left: medium none;
+    padding-bottom: 10px;
+    background-color: #fcfcfc;
+    min-height: 400px;
+    padding-left: 20px;
+    width: 500px;
+    padding-right: 30px;
+    display: none;
+    margin-left: 10px;
+    border-top: medium none;
+    border-right: #969696 2px solid;
+    padding-top: 10px;
+    box-shadow: 4px 4px 5px -1px #999999;
+    -webkit-box-shadow: 4px 4px 5px -1px #999999;
+    -moz-box-shadow: 4px 4px 5px -1px #999999
+}
+
+.dh_nav .dhbtn ul li .pop h3 {
+    display: block;
+    font-size: 15px;
+}
+
+.dh_nav .dhbtn ul li .pop dl {
+    padding-bottom: 6px;
+    color: #4B4B4B;
+    padding-top: 6px
+}
+
+.dh_nav .dhbtn ul li .pop dl:hover {
+    color: #4B4B4B;
+    margin-left: 5px;
+    margin-right: 5px
+}
+
+.dh_nav .dhbtn ul li .pop dl a {
+    color: #4B4B4B;
+    margin-left: 10px;
+    margin-right: 10px
+}
+
+.dh_nav .dhbtn ul li .pop dt {
+    padding-left: 0px;
+    width: 70px;
+}
+
+.dh_nav .dhbtn ul li .pop dd {
+    width: 500px;
+    margin-left: -10px;
+}
+
+.dh_nav .dhbtn:hover ul {
+    display: block;
+}
+
+
+/*控制一级菜单*/
+
+.dh_nav .dhbtn ul li:hover {
+    background-color: #fcfcfc
+}
+
+.dh_nav .dhbtn ul li:hover .icon {
+    background-color: #f5f5f5
+}
+
+.dh_nav .dhbtn ul li:hover .icon a {
+    color: #333333
+}
+
+.dh_nav .dhbtn ul li:hover .icon a i {
+    background-position: 0px -15px
+}
+
+.dh_nav .dhbtn ul li:hover .pop {
+    display: block;
+    top: 0px;
+    left: 200px
+}
+
+
+/*控制二级菜单*/
+
+.dh_nav .dhbtn ul li:hover dl {
+    color: #6e6e6e
+}
+
+.dh_nav .dhbtn ul li:hover a {
+    color: #666666
+}
+
+.dh_nav .dhbtn ul li:hover a:hover {
+    color: #cd0606
+}
+
+
+/*banner*/
+
 .carousel {
-    height: 330px;
-    background-color: #000;
-    margin-bottom: 30px;
+    height: auto;
+    background-color: #FFF;
+    margin-top: 30px;
 }
 
 .carousel .item {
     height: auto;
-    background-color: #000;
+    background-color: #FFF;
 }
 
 .carousel img {
     width: 100%;
-    background-color: #000;
-}
-
-hr .divider {
-    margin: 20px 0;
 }
 
 
@@ -71,7 +338,7 @@ hr .divider {
 
 .discount h1 {
     color: #1A1A1A;
-    font-size: 1.5em;
+    font-size: 2em;
     font-weight: 600;
     padding: 0 0 0.5em;
     border-bottom: 2px solid #eee;
@@ -111,6 +378,9 @@ a.addtocart {
 a.addtocart:hover {
     background-color: #00FF66;
 }
+
+
+/*简介
 .feature {
     padding: 30px 0;
     height: 300px;
@@ -144,29 +414,29 @@ a.selbtn {
     background-color: #333399;
     padding: 10px 18px;
     transition: 0.5s all ease;
-    /*0.5 秒的背景颜色渐变过渡*/
+    /*0.5 秒的背景颜色渐变过渡
     border-radius: 3px;
-    /*圆角边框*/
+    /*圆角边框
     text-decoration: none;
-    /*用于去掉超链接文字的下划线。 */
+    /*用于去掉超链接文字的下划线。
 }
 
 a.selbtn:hover {
     background-color: #CC3300;
-}
+}*/
+
 .footer p {
-    color: #C0C0C0;
+    color: #FF3366;
     font-size: 1.2em;
     line-height: 1.8em;
     vertical-align: middle;
     margin: 0.4em 0;
 }
 
-
-
 .footer {
+    margin-top: 30px;
     padding: 1em 0;
-    background-color: #9966CC;
+    background-color: #FFCCCC;
 }
 
 .footer-right ul {
@@ -184,9 +454,4 @@ a.selbtn:hover {
 
 .footer-right {
     float: right;
-}
-
-.glyphicon {
-    font-size: 0.2em;
-    color: #DDDDDD;
 }

@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "酒品网主页";
 }
 
 <!DOCTYPE html>
@@ -8,12 +8,12 @@
 <head>
     <meta charset="utf-8" http-equiv="content-type" content="text/html">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    <link rel="stylesheet" type="text/css" href="assets/lib/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/lib/css/bootstrap.css">
     <!--[if lt IE 9]>
     <script src="assets/lib/html5shiv/html5shiv.js"></script>
     <script src="assets/lib/respond/respond.min.js"></script>
     <![endif]-->
-    <link rel="stylesheet" type="text/css" href="assets\css\style_index.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/style_index.css">
     <title>主页</title>
 </head>
 
@@ -30,7 +30,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="#" id="nav-brand-itheima">
-                        <img src="assets/img/logo.png" alt="网站logo" />
+                        <img src="~/assets/img/logo.png" alt="网站logo" />
                     </a>
                 </div>
                 <!--导航菜单-->
@@ -87,8 +87,8 @@
                                 <input type="text" class="form-control input-lg" placeholder="请输入"><span class="input-group-addon btn btn-primary">搜索</span>
                             </div>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a asp-action="Login"><span class="glyphicon glyphicon-user">注册</span></a></li>
-                                <li><a asp-controller="Account" asp-action="Login"><span class="glyphicon glyphicon-log-in">登录</span></a></li>
+                                <li><a href="html\RegPage.html"><span class="glyphicon glyphicon-user">注册</span></a></li>
+                                <li><a href="html\LoginPage.html"><span class="glyphicon glyphicon-log-in">登录</span></a></li>
                             </ul>
                         </form>
                     </div>
@@ -96,184 +96,324 @@
             </div>
         </nav>
     </div>
-    <div id="AdCarousel" class="carousel slide" data-ride="carousel">
-        <!--轮播指标-->
-        <ol class="carousel-indicators">
-            <li data-target="#AdCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#AdCarousel" data-slide-to="1"></li>
-            <li data-target="#AdCarousel" data-slide-to="2"></li>
-            <li data-target="#AdCarousel" data-slide-to="3"></li>
-        </ol>
-        <!--轮播项目-->
-        <div class="carousel-inner" role="listbox">
-            <div class="item active">
-                <a href="#"><img src="assets/img/banner1.jpg" alt="1" /></a>
-            </div>
-            <div class="item">
-                <a href="#"><img src="assets/img/banner2.jpg" alt="2" /></a>
-            </div>
-            <div class="item">
-                <a href="#"><img src="assets/img/banner3.jpg" alt="3" /></a>
-            </div>
-            <div class="item">
-                <a href="#"><img src="assets/img/banner4.jpg" alt="4" /></a>
-            </div>
-            <a class="carousel-control left" href="#AdCarousel" data-slide="prev" role="button">
-                <span class="glyphicon glyphicon-chevron-left"></span>
-            </a>
-            <a class="carousel-control right" href="#AdCarousel" data-slide="next" role="button">
-                <span class="glyphicon glyphicon-chevron-right"></span>
-            </a>
-        </div>
-        <hr class="divider">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="discount">
-                        <h1>优惠推荐</h1>
-                        <div class="col-md-3">
-                            <img src="pic/whitewine/剑南春52°_1.jpg" class="img-responsive">
-                            <a href="#"><h5>剑南春52°白酒</h5></a>
-                            <h6>￥179.00</h6>
-                            <span><a class="addtocart" href="#">添加到购物车</a></span>
-                        </div>
-                        <div class="col-md-3">
-                            <img src="pic/whitewine/泸州老窖52°六瓶装_1.jpg" class="img-responsive">
-                            <a href="#"><h5>泸州老窖52°六瓶装</h5></a>
-                            <h6>￥269.00</h6>
-                            <span><a class="addtocart" href="#">添加到购物车</a></span>
-                        </div>
-                        <div class="col-md-3">
-                            <img src="pic/redwine/丁戈树赤霞珠两瓶装_1.jpg" class="img-responsive">
-                            <a href="#"><h5>丁戈树赤霞珠两瓶装</h5></a>
-                            <h6>￥79.00</h6>
-                            <span><a class="addtocart" href="#">添加到购物车</a></span>
-                        </div>
-                        <div class="col-md-3">
-                            <img src="pic/foreignwine/40°大班保罗VSOP白兰地_1.jpg" class="img-responsive">
-                            <a href="#"><h5>40°大班保罗VSOP白兰地</h5></a>
-                            <h6>￥179.00</h6>
-                            <span><a class="addtocart" href="#">添加到购物车</a></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="baike">
-                        <h1>酒类百科</h1>
-                        <p>随便打点东西看看先啦</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <hr class="divider">
-        <div class="container">
-            <!--1.定义标签-->
-            <ul class="nav nav-tabs" role="tablist" id="tab-list">
-                <li><a href="#tab-white" role="tab" data-toggle="tab">白酒</a></li>
-                <li><a href="#tab-red" role="tab" data-toggle="tab">红酒</a></li>
-                <li><a href="#tab-foreign" role="tab" data-toggle="tab">洋酒</a></li>
-                <li><a href="#tab-beer" role="tab" data-toggle="tab">啤酒</a></li>
-            </ul>
-            <!--2.标签内容 -->
-            <div class="tab-content">
-                <!--内容 1：白酒-->
-                <div class="tab-pane active" id="tab-white">
-                    <div class="row feature">
-                        <!--右侧：显示文字介绍-->
-                        <div class="col-md-10">
-                            <h2 class="feature-heading">白酒<span class="text-muted">中国特有的蒸馏酒</span></h2>
-                            <p class="lead">白酒是以粮谷为主要原料，以大曲、小曲或麸曲及酒母等为糖化发酵剂，经蒸煮、糖化、发酵、蒸馏而制成的蒸馏酒。又称烧酒、老白干、烧刀子等。酒质无色（或微黄）透明，气味芳香纯正，入口绵甜爽净，酒精含量较高，经贮存老熟后，具有以酯类为主体的复合香味。以曲类、酒母为糖化发酵剂，利用淀粉质（糖质）原料，经蒸煮、糖化、发酵、蒸馏、陈酿和勾兑而酿制而成的各类酒。</p>
-                            <a class="selbtn" href="#" role="button">点击选购</a>
-                        </div>
-                        <!--右侧：显示图片-->
-                        <div class="col-md-2">
-                            <img class="feature-image img-responsive" src="assets/img/baijiu.jpg" alt="白酒" />
-                        </div>
-                    </div>
-                </div>
-                <!--内容 2：红酒-->
-                <div class="tab-pane" id="tab-red">
-                    <div class="row feature">
-                        <!--左侧：显示一张图片-->
-                        <div class="col-md-2">
-                            <img class="feature-image img-responsive" src="assets/img/hongjiu.jpg" alt="红酒" />
-                        </div>
-                        <!--右侧：显示文字介绍-->
-                        <div class="col-md-10">
-                            <h2 class="feature-heading">红酒<span class="text-muted">自然发酵的果酒</span></h2>
-                            <p class="lead">红酒是经自然发酵酿造出来的果酒，含有最多的是葡萄汁，占80%以上，其次是经葡萄里面的糖份自然发酵而成的酒精，一般在10%至30%，剩余的物质超过1000种，比较重要的有300多种，红酒其他重要的成分有酒石酸，果胶，矿物质和单宁酸等。</p>
-                            <a class="selbtn" href="#" role="button">点击选购</a>
-                        </div>
-                    </div>
-                </div>
-                <!--内容 3：洋酒-->
-                <div class="tab-pane" id="tab-foreign">
-                    <div class="row feature">
-                        <!--右侧：显示文字介绍-->
-                        <div class="col-md-10">
-                            <h2 class="feature-heading">洋酒<span class="text-muted">进口酒类饮品</span></h2>
-                            <p class="lead">
-                                洋酒按制造原料可分为白兰地（brandy）、威士忌（whisky）和朗姆酒（rum）。白兰地以葡萄为原料，若以其它水果为原料制成的蒸馏酒，则在白兰地前冠以水果的名称，如苹果白兰地、樱桃白兰地、梨子白兰地等等。 威士忌以麦芽和谷类为原料，单纯的粮谷威士忌一般不能市售，只有和麦芽威士忌组成混合威士忌方可销售。美国的波旁威士忌（bourbonwhisky）则主要以玉米为原料（玉米占51-75%）。 而朗姆酒则以甘蔗粮蜜为原料，分为深色和浅色两种。
-                            </p>
-                            <a class="selbtn" href="#" role="button">点击选购</a>
-                        </div>
-                        <!--右侧：显示一张图片-->
-                        <div class="col-md-2">
-                            <img class="feature-image img-responsive" src="assets/img/yangjiu.jpg" alt="洋酒" />
-                        </div>
-                    </div>
-                </div>
-                <!--内容 4：啤酒-->
-                <div class="tab-pane" id="tab-beer">
-                    <div class="row feature">
-                        <!--左侧：显示一张图片-->
-                        <div class="col-md-2">
-                            <img class="feature-image img-responsive" src="assets/img/pijiu.jpg" alt="啤酒" />
-                        </div>
-                        <!--右侧：显示文字介绍-->
-                        <div class="col-md-10">
-                            <h2 class="feature-heading">啤酒<span class="text-muted">人类最古老的酒精饮料之一</span></h2>
-                            <p class="lead">啤酒以大麦芽、酒花、水为主要原料，经酵母发酵作用酿制而成的饱含二氧化碳的低酒精度酒，被称为“液体面包”，是一种低浓度酒精饮料。啤酒乙醇含量最少、故喝啤酒不但不易醉人伤身、少量饮用反而对身体健康有益处。</p>
-                            <a class="selbtn" href="#" role="button">点击选购</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <hr class="divider">
-        <footer class="footer">
-            <div class="container">
-                <!--1.返回顶部：页面内超链接。 -->
-                <div class="pull-right">
-                    <a href="#top">回到顶部</a>
-                </div>
-                <!--2.提示信息-->
-                <div class="footer-left">
-                    <p>购买前请确认达到法定饮酒年龄！酒仙网不销售任何含酒精产品给18岁以下人士！</p>
-                </div>
-                <!--3.网站全局超链接-->
-                <div class="footer-right">
-                    <ul>
-                        <li><a href="#"><i class="glyphicon glyphicon-phone-alt">联系我们</i></a></li>
-                        <li><a href="#"><i class="glyphicon glyphicon-map-marker">关于我们</i></a></li>
-                        <li><a href="#"><i class="glyphicon glyphicon-question-sign">服务声明</i></a></li>
+    <div class="container">
+        <div class="row">
+            <!--导航-->
+            <div class="dh_nav col-md-4">
+                <div class="dhbtn">
+                    <h2><a href="#">全部商品分类</a></h2>
+                    <ul class="box">
+                        <li class="a1">
+                            <div class="icon"><a href="#"><i>&nbsp;</i>白酒</a></div>
+                            <dl>
+                                <dt>热门</dt>
+                                <dd>
+                                    <a href="#">茅台</a>
+                                    <a href="#">五粮液</a>
+                                    <a href="#">汾酒</a>
+                                    <a href="#">泸州老窖</a>
+                                </dd>
+                            </dl>
+                            <div class="pop">
+                                <h3><a href="#">白酒</a></h3>
+                                <dl>
+                                    <dl>
+                                        <dt>品牌</dt>
+                                        <dd>
+                                            <a href="#">茅台</a>
+                                            <a href="#">五粮液</a>
+                                            <a href="#">汾酒</a>
+                                            <a href="#">泸州老窖</a>
+                                            <a href="#">剑南春</a>
+                                            <a href="#">扳倒井</a>
+                                            <a href="#">杏花村</a>
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>产地</dt>
+                                        <dd>
+                                            <a href="#">贵州</a>
+                                            <a href="#">四川</a>
+                                            <a href="#">山西</a>
+                                            <a href="#">江苏</a>
+                                            <a href="#">安徽</a>
+                                            <a href="#">湖北</a>
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>价格</dt>
+                                        <dd>
+                                            <a href="#">1-99元</a>
+                                            <a href="#">100-299元</a>
+                                            <a href="#">300-599元</a>
+                                            <a href="#">600-999元</a>
+                                            <a href="#">1000元及以上</a>
+                                        </dd>
+                                    </dl>
+                                </dl>
+                            </div>
+                        </li>
+                        <li class="a2">
+                            <div class="icon"><a href="#"><i>&nbsp;</i>葡萄酒</a></div>
+                            <dl>
+                                <dt>推荐</dt>
+                                <dd>
+                                    <a href="#">茉莉花</a>
+                                    <a href="#">丁戈树</a>
+                                    <a href="#">长城</a>
+                                    <a href="#">黄尾袋鼠</a>
+                                </dd>
+                            </dl>
+                            <div class="pop">
+                                <h3><a href="#">葡萄酒</a></h3>
+                                <dl>
+                                    <dl>
+                                        <dt>品牌</dt>
+                                        <dd>
+                                            <a href="#">拉菲</a>
+                                            <a href="#">奔富</a>
+                                            <a href="#">长城</a>
+                                            <a href="#">黄尾袋鼠</a>
+                                            <a href="#">杰卡斯</a>
+                                            <a href="#">蒙特斯</a>
+                                            <a href="#">张裕</a>
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>产地</dt>
+                                        <dd>
+                                            <a href="#">法国</a>
+                                            <a href="#">澳大利亚</a>
+                                            <a href="#">意大利</a>
+                                            <a href="#">中国</a>
+                                            <a href="#">南非</a>
+                                            <a href="#">智利</a>
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>价格</dt>
+                                        <dd>
+                                            <a href="#">1-99元</a>
+                                            <a href="#">100-299元</a>
+                                            <a href="#">300-599元</a>
+                                            <a href="#">600-999元</a>
+                                            <a href="#">1000元及以上</a>
+                                        </dd>
+                                    </dl>
+                                </dl>
+                            </div>
+                        </li>
+                        <li class="a3">
+                            <div class="icon"><a href="#"><i>&nbsp;</i>洋酒</a></div>
+                            <dl>
+                                <dt>推荐</dt>
+                                <dd>
+                                    <a href="#">威士忌</a>
+                                    <a href="#">人头马</a>
+                                    <a href="#">白兰地</a>
+                                    <a href="#">马爹利</a>
+                                </dd>
+                            </dl>
+                            <div class="pop">
+                                <h3><a href="#">洋酒</a></h3>
+                                <dl>
+                                    <dl>
+                                        <dt>品牌</dt>
+                                        <dd>
+                                            <a href="#">芝华士</a>
+                                            <a href="#">杰克丹尼</a>
+                                            <a href="#">人头马</a>
+                                            <a href="#">尊尼获加</a>
+                                            <a href="#">轩尼诗</a>
+                                            <a href="#">马爹利</a>
+                                            <a href="#">占边</a>
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>品类</dt>
+                                        <dd>
+                                            <a href="#">白兰地</a>
+                                            <a href="#">威士忌</a>
+                                            <a href="#">伏特加</a>
+                                            <a href="#">龙舌兰</a>
+                                            <a href="#">朗姆酒</a>
+                                            <a href="#">预调酒</a>
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>价格</dt>
+                                        <dd>
+                                            <a href="#">1-99元</a>
+                                            <a href="#">100-299元</a>
+                                            <a href="#">300-599元</a>
+                                            <a href="#">600-999元</a>
+                                            <a href="#">1000元及以上</a>
+                                        </dd>
+                                    </dl>
+                                </dl>
+                            </div>
+                        </li>
+                        <li class="a4">
+                            <div class="icon"><a href="#"><i>&nbsp;</i>啤酒</a></div>
+                            <dl>
+                                <dt>推荐</dt>
+                                <dd>
+                                    <a href="#">青岛</a>
+                                    <a href="#">嘉士伯</a>
+                                    <a href="#">喜力</a>
+                                    <a href="#">百威</a>
+                                </dd>
+                            </dl>
+                            <div class="pop">
+                                <h3><a href="#">啤酒</a></h3>
+                                <dl>
+                                    <dl>
+                                        <dt>品牌</dt>
+                                        <dd>
+                                            <a href="#">青岛</a>
+                                            <a href="#">嘉士伯</a>
+                                            <a href="#">喜力</a>
+                                            <a href="#">百威</a>
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>价格</dt>
+                                        <dd>
+                                            <a href="#">1-99元</a>
+                                            <a href="#">100-299元</a>
+                                            <a href="#">300-599元</a>
+                                            <a href="#">600-999元</a>
+                                            <a href="#">1000元及以上</a>
+                                        </dd>
+                                    </dl>
+                                </dl>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
-        </footer>
-        <script src="assets/lib/jquery/jquery-1.11.0.js"></script>
-        <script src="assets/lib/js/bootstrap.js"></script>
-        <script>
-        $(document).ready(function(e) {
-            //1.定义事件处理方法：当触发导航栏上的下拉框超链接按钮时；
-            $("#navbar-collapse .dropdown-menu a").click(function(e) {
-                //2. 获取被触发控件的 href 属性的值；
-                var href = $(this).attr("href");
-                //3. 在标签组件中查找与该属性值相同的标签， 并打开它。
-                $("#tab-list a[href='" + href + "']").tab("show");
-            });
-        });
-        </script>
+            <div id="AdCarousel" class="carousel slide col-md-8" data-ride="carousel">
+                <!--轮播指标-->
+                <ol class="carousel-indicators">
+                    <li data-target="#AdCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#AdCarousel" data-slide-to="1"></li>
+                    <li data-target="#AdCarousel" data-slide-to="2"></li>
+                    <li data-target="#AdCarousel" data-slide-to="3"></li>
+                </ol>
+                <!--轮播项目-->
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <a href="#"><img src="assets/img/banner1.jpg" alt="1" /></a>
+                    </div>
+                    <div class="item">
+                        <a href="#"><img src="assets/img/banner2.jpg" alt="2" /></a>
+                    </div>
+                    <div class="item">
+                        <a href="#"><img src="assets/img/banner3.jpg" alt="3" /></a>
+                    </div>
+                    <div class="item">
+                        <a href="#"><img src="assets/img/banner4.jpg" alt="4" /></a>
+                    </div>
+                    <a class="carousel-control left" href="#AdCarousel" data-slide="prev" role="button">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a class="carousel-control right" href="#AdCarousel" data-slide="next" role="button">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="discount">
+                <h1>诚意推荐</h1>
+                <div class="col-md-2">
+                    <img src="pic/liqueur/剑南春52°_1.jpg" class="img-responsive">
+                    <a href="#"><h5>剑南春52°白酒</h5></a>
+                    <h6>￥179.00</h6>
+                    <span><a class="addtocart" href="#">添加到购物车</a></span>
+                </div>
+                <div class="col-md-2">
+                    <img src="pic/liqueur/泸州老窖52°六瓶装_1.jpg" class="img-responsive">
+                    <a href="#"><h5>泸州老窖52°六瓶装</h5></a>
+                    <h6>￥269.00</h6>
+                    <span><a class="addtocart" href="#">添加到购物车</a></span>
+                </div>
+                <div class="col-md-2">
+                    <img src="pic/wine/丁戈树赤霞珠两瓶装_1.jpg" class="img-responsive">
+                    <a href="#"><h5>丁戈树赤霞珠两瓶装</h5></a>
+                    <h6>￥79.00</h6>
+                    <span><a class="addtocart" href="#">添加到购物车</a></span>
+                </div>
+                <div class="col-md-2">
+                    <img src="pic/foreignwine/40°大班保罗VSOP白兰地_1.jpg" class="img-responsive">
+                    <a href="#"><h5>40°大班保罗VSOP白兰地</h5></a>
+                    <h6>￥179.00</h6>
+                    <span><a class="addtocart" href="#">添加到购物车</a></span>
+                </div>
+                <div class="col-md-4">
+                    <h3>酒类百科</h3>
+                    <p>随便打点东西看看先啦</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="container">
+        <div class="row">
+            <div class="discount">
+                <h1>优惠特卖</h1>
+                <div class="col-md-3">
+                    <img src="pic/liqueur/剑南春52°_1.jpg" class="img-responsive">
+                    <a href="#"><h5>剑南春52°白酒</h5></a>
+                    <h6>￥179.00</h6>
+                    <span><a class="addtocart" href="#">添加到购物车</a></span>
+                </div>
+                <div class="col-md-3">
+                    <img src="pic/liqueur/泸州老窖52°六瓶装_1.jpg" class="img-responsive">
+                    <a href="#"><h5>泸州老窖52°六瓶装</h5></a>
+                    <h6>￥269.00</h6>
+                    <span><a class="addtocart" href="#">添加到购物车</a></span>
+                </div>
+                <div class="col-md-3">
+                    <img src="pic/wine/丁戈树赤霞珠两瓶装_1.jpg" class="img-responsive">
+                    <a href="#"><h5>丁戈树赤霞珠两瓶装</h5></a>
+                    <h6>￥79.00</h6>
+                    <span><a class="addtocart" href="#">添加到购物车</a></span>
+                </div>
+                <div class="col-md-3">
+                    <img src="pic/foreignwine/40°大班保罗VSOP白兰地_1.jpg" class="img-responsive">
+                    <a href="#"><h5>40°大班保罗VSOP白兰地</h5></a>
+                    <h6>￥179.00</h6>
+                    <span><a class="addtocart" href="#">添加到购物车</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <!--1.返回顶部：页面内超链接。 -->
+            <div class="pull-right">
+                <a href="#top">回到顶部</a>
+            </div>
+            <!--2.提示信息-->
+            <div class="footer-left">
+                <p>酒仙网电子商务股份有限公司  ©  酒仙网   2011  jiuxian.com  All   Rights Reserved   京ICP备11007961号-1   京公网安备1101050188221</p>
+                <p>购买前请确认达到法定饮酒年龄！酒仙网不销售任何含酒精产品给18岁以下人士！</p>
+            </div>
+            <!--3.网站全局超链接-->
+            <div class="footer-right">
+                <ul>
+                    <li><a href="#"><i class="glyphicon glyphicon-phone-alt">联系我们</i></a></li>
+                    <li><a href="#"><i class="glyphicon glyphicon-map-marker">关于我们</i></a></li>
+                    <li><a href="#"><i class="glyphicon glyphicon-question-sign">服务声明</i></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script src="~/assets/lib/jquery/jquery-1.11.0.js"></script>
+    <script src="~/assets/lib/js/bootstrap.js"></script>
 </body>
 
 </html>
