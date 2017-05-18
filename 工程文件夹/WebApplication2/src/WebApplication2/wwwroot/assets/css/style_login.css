@@ -1,26 +1,30 @@
+﻿@charset "utf-8";
+
 /*初始化*/
 
-ol,
-ul {
-    list-style: none;
+* {
     margin: 0;
     padding: 0;
-}
-
-a {
-    text-decoration: none;
-}
-
-.clear {
-    clear: both;
+    list-style-type: none;
 }
 
 img {
-    max-width: 100%
+    max-width: 100 %
 }
 
 body {
-    font-size: 13px;
+    font-size: 13 px;
+    line-height: 2em;
+    color: #666666;
+}
+
+
+/*导航栏*/
+
+.top {
+    background-color: #FFFFFF;
+    padding: 0.7em 0;
+    height: 30px;
 }
 
 .navbar-brand {
@@ -34,17 +38,17 @@ body {
     width: 200 px;
 }
 
-.top {
-    background-color: #FFFFCC;
-    padding: 0.7em 0;
-    height: 60px;
-    margin-bottom: 10px;
+.navbar-default {
+    box-shadow: 12px -5px 40px -12px;
 }
 
-img {
-    max-width: 100%
+.glyphicon {
+    font-size: 13px;
 }
 
+.body {
+    padding-top: 100px;
+}
 
 
 .bg {
@@ -56,8 +60,7 @@ img {
 }
 .login{
     margin-top: 85px;
-    width: 500px auto;
-
+    width: 500px;
     padding: 50px 40px;
 }
 
@@ -160,17 +163,6 @@ img {
     transition: 0.5s all;
 }
 
-.copyright {
-    text-align: center;
-    margin: 50px;
-    padding: 5px 0px 0px 0px;
-}
-
-.copyright p {
-    font-size: 15px;
-    font-weight: 400;
-    color: #FF0000;
-}
 .forget-password{
   float: right;
 }
