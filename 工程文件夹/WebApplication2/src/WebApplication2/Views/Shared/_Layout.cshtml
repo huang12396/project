@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebApplication2</title>
+
+    <environment names="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/assets/css/_layout.css" />
+    </environment>
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+    @Html.ApplicationInsightsJavaScript(TelemetryConfiguration)
+</head>
+<body>
+    <div class="top">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container-fluid">
+                <!--导航头部-->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+                        <span class="sr-only"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#" id="nav-brand-itheima">
+                        <img src="~/assets/img/logo.png" alt="网站logo" />
+                    </a>
+                </div>
+                <!--导航菜单-->
+                <div class="" id="navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a asp-controller="Home" asp-action="Index">首页</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">白酒馆<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">茅台</a></li>
+                                <li><a href="#">五粮液</a></li>
+                                <li><a href="#">泸州老窖</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">葡萄酒馆<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">红葡萄酒</a></li>
+                                <li><a href="#">白葡萄酒</a></li>
+                                <li><a href="#">起泡酒</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">洋酒馆<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">白兰地</a></li>
+                                <li><a href="#">威士忌</a></li>
+                                <li><a href="#">伏特加</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">啤酒馆<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">嘉士伯</a></li>
+                                <li><a href="#">百威</a></li>
+                                <li><a href="#">青岛</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">选酒中心</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">我的账户<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">账户资料</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">我的订单</a></li>
+                                <li><a href="#">物流跟踪</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span>购物车</a></li>
+                    </ul>
+                    <div>
+                        <form class="navbar-form navbar-right" role="search">
+                            <div class="input-group">
+                                <input type="text" class="form-control input-lg" placeholder="请输入"><span class="input-group-addon btn btn-primary">搜索</span>
+                            </div>
+                            <ul class="nav navbar-nav navbar-right">
+
+                                @await Html.PartialAsync("_LoginPartial")
+                            </ul>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="container body-content">
+        @RenderBody()    
+        <hr />
+        <footer class="footer">
+            <div class="container">
+                <!--1.返回顶部：页面内超链接。 -->
+                <div class="pull-right">
+                    <a href="#top">回到顶部</a>
+                </div>
+                <!--2.提示信息-->
+                <div class="footer-left">
+                    <p>酒仙网电子商务股份有限公司  ©  酒仙网   2011  jiuxian.com  All   Rights Reserved   京ICP备11007961号-1   京公网安备1101050188221</p>
+                    <p>购买前请确认达到法定饮酒年龄！酒仙网不销售任何含酒精产品给18岁以下人士！</p>
+                </div>
+                <!--3.网站全局超链接-->
+                <div class="footer-right">
+                    <ul>
+                        <li><a href="#"><i class="glyphicon glyphicon-phone-alt">联系我们</i></a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-map-marker">关于我们</i></a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-question-sign">服务声明</i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>        
+    </div>
+
+    <environment names="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
+        </script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
+
+    @RenderSection("scripts", required: false)
+    
+</body>
+</html>
