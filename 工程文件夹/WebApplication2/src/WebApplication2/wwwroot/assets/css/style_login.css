@@ -9,28 +9,23 @@
 }
 
 img {
-    max-width: 100 %
+    max-width: 100%
 }
 
 body {
-    font-size: 13 px;
+    font-size: 13px;
     line-height: 2em;
     color: #666666;
 }
 
 
-<<<<<<< HEAD
-body {
-    font-size: 13px;
-
-=======
 /*导航栏*/
 
 .top {
     background-color: #FFFFFF;
     padding: 0.7em 0;
-    height: 30px;
->>>>>>> origin/前端
+    height: 40px;
+    margin-bottom:15px;
 }
 
 .navbar-brand {
@@ -39,9 +34,9 @@ body {
 
 .navbar-brand > img {
     height: 60px;
-    margin-right: 15 px;
-    margin-top: 15 px;
-    width: 200 px;
+    margin-right: 15px;
+    margin-top: 5px;
+    width: 200px;
 }
 
 .navbar-default {
@@ -63,12 +58,13 @@ body {
     height: 600px;
     position: relative;
     height: 650px;
-    margin-left: 0;
-    margin-right: 0;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top:20px;
 }
 .login{
     margin-top: 85px;
-    width: 500px;
+    width: 550px;
     padding: 50px 40px;
 }
 
@@ -89,7 +85,7 @@ body {
     outline: none;
     font-size: 15px;
     font-weight: 500;
-    color: #FFFFFF;
+    color: #000000;
     padding: 1px 10px;
     background-color: #FFFFFF;
     border: 1px solid #CCC;
@@ -102,7 +98,7 @@ body {
     outline: none;
     font-size: 15px;
     font-weight: 500;
-    color: #FFFFFF;
+    color: #000000;
     padding: 1px 20px;
     background-color: #FFFFFF;
     border: 1px solid #CCC;
