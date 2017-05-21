@@ -309,7 +309,9 @@ a:hover {
     color: #cd0606
 }
 
-
+.pull-right{
+  margin-right: 20px;
+}
 /*banner*/
 
 .carousel {
@@ -437,6 +439,10 @@ a.selbtn:hover {
     margin-top: 30px;
     padding: 1em 0;
     background-color: #FFCCCC;
+}
+
+.footer-right{
+  margin-right: 20px;
 }
 
 .footer-right ul {
