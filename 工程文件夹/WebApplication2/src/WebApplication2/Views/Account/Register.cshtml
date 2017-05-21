@@ -71,7 +71,7 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-offset-3 col-sm-6 form-box">
-                        <form action="http://www.zhbit.com/" method="post" class="registration-form" role="form">
+                        <form asp-controller="Account" asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-horizontal">
                             <div class="form-bottom">
                                 <!--用户名-->
                                 <div class="form-group">
@@ -99,7 +99,7 @@
                                     <input type="password" name="form-repeat-password" placeholder="Repeat password..." class="form-repeat-password form-control" id="form-repeat-password" required />
                                 </div>
                                 <button type="submit" class="btn">Sign me up!</button>
-                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>
