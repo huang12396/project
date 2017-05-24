@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using WebApplication2.Data;
-using WebApplication2.Models;
-using WebApplication2.Services;
+using jiupin.Data;
+using jiupin.Models;
+using jiupin.Services;
 
-namespace WebApplication2
+namespace jiupin
 {
     public class Startup
     {
@@ -49,6 +49,7 @@ namespace WebApplication2
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddDbContext<DBAlcoholContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
