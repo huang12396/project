@@ -361,7 +361,7 @@ a:hover {
     color: #996600;
 }
 
-a.addtocart {
+button.addtocart {
     display: block;
     /*占据一整行*/
     font-size: 1em;
@@ -377,7 +377,7 @@ a.addtocart {
     /*用于去掉超链接文字的下划线。 */
 }
 
-a.addtocart:hover {
+button.addtocart:hover {
     background-color: #00FF66;
 }
 

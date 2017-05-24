@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "购物车";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h1>购物车</h1>
+    <div>
+        <table id="table" cellspacing="0" cellpadding="0" border="1" width="100%" class="hide">
+            <thead>
+                <tr>
+                    <td width="8%" height="34">
+                        <input class="ck" name="checkbox" type="checkbox" id="allCheck">
+                        <label for="checkbox0_t" style="cursor: pointer;">全选</label>
+                    </td>
+                    <td width="5%">图片</td>
+                    <td width="20%">商品名称</td>
+                    <td width="25%">数量</td>
+                    <td width="13%">单价</td>
+                    <td width="13%">小计</td>
+                    <td width="13%">操作</td>
+                </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+        </table>
+        <div class="box" id="box"></div>
+        <h2 id="h2" class="">总价格：￥<span id="totalPrice">0</span></h2>
+    </div>
+    <div>
+        <button class="ZF">支付</button>
+    </div>
+</div>
+<script src="~/assets/js/server.js" type="text/javascript" charset="utf-8"></script>
+<!--操作购物车页面的cart.js-->
+<script src="../assets/js/cart.js"></script>
