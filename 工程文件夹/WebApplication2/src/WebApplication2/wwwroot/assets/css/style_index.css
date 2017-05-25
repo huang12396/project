@@ -346,9 +346,9 @@ a:hover {
     border-bottom: 2px solid #eee;
 }
 
-.discount h6 {
+.discount .list dd {
     color: #C15162;
-    font-size: 1.5em;
+    font-size: 1.0em;
     font-weight: 400;
     margin: 0.3em 0;
 }
