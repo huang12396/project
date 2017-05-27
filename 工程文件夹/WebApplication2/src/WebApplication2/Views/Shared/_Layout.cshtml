@@ -8,7 +8,6 @@
     <environment names="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/assets/css/_layout.css" />
-        <script src="~/assets/js/cookie.js" type="text/javascript" charset="utf-8"></script>
     </environment>
     <environment names="Staging,Production">
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css"
@@ -82,16 +81,18 @@
                         </li>
                         <li><a asp-area="" asp-controller="Cart" asp-action="Cart"><span class="glyphicon glyphicon-shopping-cart"></span>购物车<i id="ccount">0</i></a></li>
                     </ul>
+               
                     <div>
-                        <form class="navbar-form navbar-right" role="search">
+                        <form class="navbar-form navbar-right-1" role="search">
                             <div class="input-group">
                                 <input type="text" class="form-control input-lg" placeholder="请输入"><span class="input-group-addon btn btn-primary">搜索</span>
                             </div>
-                            <ul class="nav navbar-nav navbar-right">
-
-                                @await Html.PartialAsync("_LoginPartial")
-                            </ul>
+                           
+                           
                         </form>
+                        <div>
+                            @await Html.PartialAsync("_LoginPartial")
+                        </div>
                     </div>
                 </div>
             </div>
