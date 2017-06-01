@@ -46,6 +46,11 @@ body {
 .glyphicon {
     font-size: 13px;
 }
+
+.body {
+    padding-top: 100px;
+}
+
 .body-content{
   margin-left: 0px;
   margin-right: 0px;

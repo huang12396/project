@@ -1,0 +1,61 @@
+﻿@{
+    Layout = "_Layout.cshtml";
+}
+
+<table style="width:100%;">
+    <tr>
+        <td style="width:250px;vertical-align:top;">
+            <p>分类</p>
+            <table style="width:250px">
+                <tr><td>按酒类</td></tr>
+                <tr>
+                    <td>
+                        白酒
+                    </td>
+                    <td>
+                        葡萄酒
+                    </td>
+                    <td>
+                        洋酒
+                    </td>
+                    <td>
+                        啤酒
+                    </td>
+                </tr>
+                <tr><td>按品牌</td></tr>
+                <tr>
+                    <td>
+                        茅台
+                    </td>
+                    <td>
+                        泸州老窖
+                    </td>
+                    <td>
+                        丁戈树
+                    </td>
+                    <td>
+                        百威
+                    </td>
+                </tr>
+                <tr><td>按价格</td></tr>
+                <tr>
+                    <td>
+                        100-299
+                    </td>
+                    <td>
+                        300-599
+                    </td>
+                    <td>
+                        600-999
+                    </td>
+                    <td>
+                        1000及以上
+                    </td>
+                </tr>
+            </table>
+        </td>
+        <td style="width:600px;vertical-align:top;">
+            @RenderBody()
+        </td>
+    </tr>
+</table>
