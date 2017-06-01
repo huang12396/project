@@ -3,17 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using WebApplication2.Models;
 
 namespace WebApplication2.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly DBAlcoholContext db;
-        public HomeController(DBAlcoholContext alcoholdb)
-        {
-            db = alcoholdb;
-        }
         public IActionResult Index()
         {
             return View();
@@ -35,6 +29,11 @@ namespace WebApplication2.Controllers
 
         public IActionResult Error()
         {
+            return View();
+        }
+        public IActionResult Detail(string returnUrl = null)
+        {
+            ViewData["ReturnUrl"] = returnUrl;
             return View();
         }
     }
