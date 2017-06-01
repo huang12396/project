@@ -39,38 +39,14 @@
                     <ul class="nav navbar-nav">
                         <li class=""><a asp-controller="Home" asp-action="Index">首页</a></li>
                         <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">白酒馆<b class="caret"></b></a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">购物导航<b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">茅台</a></li>
-                                <li><a href="#">五粮液</a></li>
-                                <li><a href="#">泸州老窖</a></li>
+                                <li><a href="#">白酒</a></li>
+                                <li><a href="#">葡萄酒</a></li>
+                                <li><a href="">洋酒</a></li>
+                                <li><a href="">啤酒</a></li>
                             </ul>
                         </li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">葡萄酒馆<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">红葡萄酒</a></li>
-                                <li><a href="#">白葡萄酒</a></li>
-                                <li><a href="#">起泡酒</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">洋酒馆<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">白兰地</a></li>
-                                <li><a href="#">威士忌</a></li>
-                                <li><a href="#">伏特加</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">啤酒馆<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">嘉士伯</a></li>
-                                <li><a href="#">百威</a></li>
-                                <li><a href="#">青岛</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">选酒中心</a></li>
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">我的账户<b class="caret"></b></a>
                             <ul class="dropdown-menu">
@@ -80,16 +56,22 @@
                                 <li><a href="">物流跟踪</a></li>
                             </ul>
                         </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">客户服务<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">常见问题</a></li>
+                                <li><a href="#">配送说明</a></li>
+                                <li><a href="">售后服务</a></li>
+                            </ul>
+                        </li>
                         <li><a asp-area="" asp-controller="Cart" asp-action="Cart"><span class="glyphicon glyphicon-shopping-cart"></span>购物车<i id="ccount">0</i></a></li>
                     </ul>
                
                     <div>
-                        <form class="navbar-form navbar-right-1" role="search">
+                        <form class="navbar-form navbar-left" role="search">
                             <div class="input-group">
                                 <input type="text" class="form-control input-lg" placeholder="请输入"><span class="input-group-addon btn btn-primary">搜索</span>
-                            </div>
-                           
-                           
+                            </div>                           
                         </form>
                         <div>
                             @await Html.PartialAsync("_LoginPartial")
