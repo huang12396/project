@@ -30,7 +30,18 @@ namespace WebApplication2.Controllers
             {
                 ProductList pl = new ProductList();
                 pl.p = new Product { ProductId = p.ProductId, ProductName = p.ProductName, Price = p.Price };
+                
                 ivm.recProducts.Add(pl);
+            }
+
+            //获取优惠商品(6种)
+            var disProducts = db.Product.Where<Product>(m => m.ProductId > 001).OrderBy<Product, float>(m => (float)m.Price).Take<Product>(6);
+            foreach (var p in disProducts)
+            {
+                ProductList pl = new ProductList();
+                pl.p = new Product { ProductId = p.ProductId, ProductName = p.ProductName, Price = p.Price };
+
+                ivm.disProducts.Add(pl);
             }
             return View(ivm);
         }
