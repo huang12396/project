@@ -30,7 +30,7 @@ namespace WebApplication2.Controllers
             {
                 ProductList pl = new ProductList();
                 pl.p = new Product { ProductNo = p.ProductNo, ProductName = p.ProductName, Price = p.Price, };
-                
+                pl.pn = db.Ppics.Where<Ppics>(m => m.ProductNo == p.ProductNo).First<Ppics>();
 
                 ivm.recProducts.Add(pl);
             }
