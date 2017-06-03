@@ -41,6 +41,7 @@ namespace WebApplication2.Controllers
             {
                 ProductList pl = new ProductList();
                 pl.p = new Product { ProductId = p.ProductId, ProductName = p.ProductName, Price = p.Price };
+                pl.pn = db.Ppics.Where<Ppics>(m => m.ProductNo == p.ProductNo).First<Ppics>();
 
                 ivm.disProducts.Add(pl);
             }
