@@ -254,9 +254,9 @@
                     {
                         <dl class="col-md-2" pid="1001">
                             <dt>
-                                <a href='Home/Detail/@pl.p.ProductNo'><img class="img-responsive" src="pic/whitewine/@pl.pn.PicName"></a><br />
+                                <a href='Home/Detail/@pl.p.ProductNo'><img class="img-responsive" src="~/images/@pl.pn.PicName"></a><br />
                             </dt>
-                            <dd><a asp-controller="Home" asp-action="Detail">@pl.p.ProductName</a></dd>
+                            <dd><a href='Home/Detail/@pl.p.ProductName'>@pl.p.ProductName</a></dd>
                             <dd>售价:￥@pl.p.Price</dd>
                             <dd>
                                 <button class="addtocart">添加购物车</button>
@@ -321,9 +321,9 @@
                         {
                             <dl class="col-md-2" pid="1001">
                                 <dt>
-                                    <a href='Home/Detail/@pl.p.ProductNo'><img class="img-responsive" src="pic/whitewine/@pl.pn.PicName"></a><br />
+                                    <a href='Home/Detail/@pl.p.ProductNo'><img class="img-responsive" src="~/images/@pl.pn.PicName"></a><br />
                                 </dt>
-                                <dd><a asp-controller="Home" asp-action="Detail">@pl.p.ProductName</a></dd>
+                                <dd><a href='Home/Detail/@pl.p.ProductName'>@pl.p.ProductName</a></dd>
                                 <dd>售价:￥@pl.p.Price</dd>
                                 <dd>
                                     <button class="addtocart">添加购物车</button>
