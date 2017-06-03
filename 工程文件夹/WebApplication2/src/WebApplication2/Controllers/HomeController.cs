@@ -9,7 +9,7 @@ namespace WebApplication2.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly DBAlcoholContext db;
+        private readonly DBAlcoholContext db;       
 
         public HomeController(DBAlcoholContext alcoholdb)
         {
@@ -29,7 +29,8 @@ namespace WebApplication2.Controllers
             foreach (var p in recProducts)
             {
                 ProductList pl = new ProductList();
-                pl.p = new Product { ProductId = p.ProductId, ProductName = p.ProductName, Price = p.Price };
+                pl.p = new Product { ProductNo = p.ProductNo, ProductName = p.ProductName, Price = p.Price, };
+                
 
                 ivm.recProducts.Add(pl);
             }
