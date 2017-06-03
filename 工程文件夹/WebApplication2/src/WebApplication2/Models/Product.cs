@@ -9,6 +9,8 @@ namespace WebApplication2.Models
         {
             Cart = new HashSet<Cart>();
             OrderContains = new HashSet<OrderContains>();
+            Pdetail = new HashSet<Pdetail>();
+            Ppics = new HashSet<Ppics>();
         }
 
         public int ProductId { get; set; }
@@ -18,6 +20,8 @@ namespace WebApplication2.Models
 
         public virtual ICollection<Cart> Cart { get; set; }
         public virtual ICollection<OrderContains> OrderContains { get; set; }
+        public virtual ICollection<Pdetail> Pdetail { get; set; }
+        public virtual ICollection<Ppics> Ppics { get; set; }
         public virtual Stock Stock { get; set; }
     }
 }

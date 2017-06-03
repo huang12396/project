@@ -9,11 +9,11 @@
 }
 
 img {
-    max-width: 100%
+    max-width: 100 %
 }
 
 body {
-    font-size: 13px;
+    font-size: 13 px;
     line-height: 2em;
     color: #666666;
 }
@@ -34,9 +34,9 @@ body {
 
 .navbar-brand > img {
     height: 60px;
-    margin-right: 15px;
-    margin-top: 15px;
-    width: 200px;
+    margin-right: 15 px;
+    margin-top: 15 px;
+    width: 200 px;
 }
 
 .navbar-default {
