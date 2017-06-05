@@ -57,6 +57,26 @@ body {
   width: 100%;
 }
 
+button.addtocart {
+    display: block;
+    /*占据一整行*/
+    font-size: 1em;
+    font-weight: 400;
+    color: #FFF;
+    background-color: #663300;
+    padding: 10px 18px;
+    transition: 0.8s all ease;
+    /*0.8 秒的背景颜色渐变过渡*/
+    border-radius: 3px;
+    /*圆角边框*/
+    text-decoration: none;
+    /*用于去掉超链接文字的下划线。 */
+}
+
+button.addtocart:hover {
+    background-color: #00FF66;
+}
+
 .footer p {
     color: #FF3366;
     font-size: 1.2em;

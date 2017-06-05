@@ -24,6 +24,19 @@ namespace WebApplication2.Controllers
             ivm.disProducts = new List<ProductList>();
             ivm.productCats = new List<ProductCat>();
 
+            //分类
+            foreach (var pt in db.ProductClassification.Where<ProductClassification>(m => m.ObjId > 0).GroupBy<ProductClassification, string>(m => m.Classification))
+            {
+                ProductCat pc = new ProductCat();
+                pc.typeName = pt.Key;
+                pc.types = new List<ProductClassification>();
+                foreach (var p in pt)
+                {
+                    pc.types.Add(new ProductClassification { ObjId = p.ObjId, Classification = p.Classification, Cname = p.Cname });
+                }
+                ivm.productCats.Add(pc);
+            }
+
             //获取推荐商品(4种)
             var recProducts = db.Product.Where<Product>(m => m.ProductId > 001).OrderBy<Product, float>(m => (float)m.Price).Take<Product>(4);
             foreach (var p in recProducts)
@@ -40,7 +53,7 @@ namespace WebApplication2.Controllers
             foreach (var p in disProducts)
             {
                 ProductList pl = new ProductList();
-                pl.p = new Product { ProductId = p.ProductId, ProductName = p.ProductName, Price = p.Price };
+                pl.p = new Product { ProductNo = p.ProductNo, ProductName = p.ProductName, Price = p.Price };
                 pl.pn = db.Ppics.Where<Ppics>(m => m.ProductNo == p.ProductNo).First<Ppics>();
 
                 ivm.disProducts.Add(pl);
@@ -48,7 +61,35 @@ namespace WebApplication2.Controllers
             return View(ivm);
         }
 
-        public IActionResult About()
+        public IActionResult Catalog(int typeId, string typeName)
+        {
+            ViewBag.catalogName = typeName;
+            List<ProductCat> productCats = new List<ProductCat>();
+            List<ProductList> recProducts = new List<ProductList>();
+            foreach (var pt in db.ProductClassification.Where<ProductClassification>(m => m.ObjId > 0).GroupBy<ProductClassification, string>(m => m.Classification))
+            {
+                ProductCat pc = new ProductCat();
+                pc.typeName = pt.Key;
+                pc.types = new List<ProductClassification>();
+                foreach (var p in pt)
+                {
+                    pc.types.Add(new ProductClassification { ObjId = p.ObjId, Classification = p.Classification, Cname = p.Cname });
+                }
+                productCats.Add(pc);
+            }
+            var products = from p in db.Product where p.ProductId>0 && (from t in db.ProductClassify where t.ItsType == typeId select t.ProductNo).Contains(p.ProductNo) select p;
+            foreach (var p in products)
+            {   
+                ProductList pl = new ProductList();
+                pl.p = new Product { ProductNo = p.ProductNo, ProductName = p.ProductName, Price = p.Price };
+                pl.pn = db.Ppics.Where<Ppics>(m => m.ProductNo == p.ProductNo).First<Ppics>();
+                recProducts.Add(pl);
+            }
+            ViewBag.productCats = productCats;
+            ViewBag.catProducts = recProducts;
+            return View();
+        }
+            public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";
 

@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "酒品分类";
+    Layout = "/Views/Shared/_ContentLayout.cshtml";
+}
+<div>
+    <p>酒品：@ViewBag.catalogName</p>
+    @foreach (ProductList pl in ViewBag.catProducts as List<ProductList>)
+    {
+        <div class="list">
+            <dl class="col-md-2" pid="1001">
+                <dt>
+                    <a href='Home/Detail/@pl.p.ProductNo'><img class="img-responsive" src="~/images/@pl.pn.PicName"></a><br />
+                </dt>
+                <dd><a href='Home/Detail/@pl.p.ProductName'>@pl.p.ProductName</a></dd>
+                <dd>售价:￥@pl.p.Price</dd>
+                <dd>
+                    <button class="addtocart">添加购物车</button>
+                </dd>
+            </dl>
+        </div>
+    }
+</div>
