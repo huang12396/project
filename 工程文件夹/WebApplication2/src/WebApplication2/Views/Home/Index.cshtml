@@ -250,16 +250,16 @@
                 <!--轮播项目-->
                 <div class="carousel-inner" role="listbox">
                     <div class="item active">
-                        <a href="#"><img src="assets/img/banner1.jpg" alt="1" /></a>
+                        <img src="assets/img/banner1.jpg" alt="1" />
                     </div>
                     <div class="item">
-                        <a href="#"><img src="assets/img/banner2.jpg" alt="2" /></a>
+                        <img src="assets/img/banner2.jpg" alt="2" />
                     </div>
                     <div class="item">
-                        <a href="#"><img src="assets/img/banner3.jpg" alt="3" /></a>
+                        <img src="assets/img/banner3.jpg" alt="3" />
                     </div>
                     <div class="item">
-                        <a href="#"><img src="assets/img/banner4.jpg" alt="4" /></a>
+                       <img src="assets/img/banner4.jpg" alt="4" />
                     </div>
                     <a class="carousel-control left" href="#AdCarousel" data-slide="prev" role="button">
                         <span class="glyphicon glyphicon-chevron-left"></span>
@@ -270,24 +270,7 @@
                 </div>
             </div>
         </div>
-    </div>
-    <table>
-        <tr>
-            <td style="width: 733px; ">
-                <p>热门分类</p>
-                @foreach (ProductCat typeGroup in Model.productCats)
-            {
-                    <span style="color:Red;font:16px 宋体;">按</span><span style="color:Red;font:16px 宋体;">@typeGroup.typeName: </span><span>|</span>
-                    foreach (ProductClassification n in typeGroup.types)
-                    {
-                        <span><a style="font:16px 宋体;" href='Home/Catalog?typeId=@n.ObjId&typeName=@n.Cname'>@n.Cname</a>|</span>
-                    }
-                    <br />
-                }
-            </td>
-        </tr>
-    </table>
-
+    </div>    
     <div class="container">
         <div class="row">
             <div class="discount">
