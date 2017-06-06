@@ -4,12 +4,12 @@
 
 <table style="width:100%;">
     <tr>
-        <td style="width:250px;vertical-align:top;">
-            <p style="color:Red;font:16px 宋体;text-align:center;text-decoration:underline;">热门分类</p>
+        <td style="width:200px;vertical-align:top;">
+            <p style="color:mediumpurple;font:15px 微软雅黑;text-align:center;">酒品分类</p>
             <table style="width:100%">
                 @foreach (ProductCat s in ViewBag.productCats as List<ProductCat>)
                 {
-                    <tr><td style="color:Red;font:12px 宋体;text-align:center;"><span>按</span><span>@s.typeName</span></td></tr>
+                    <tr><td style="color:darkslateblue;font:12px 宋体;text-align:center;"><span>按</span><span>@s.typeName</span></td></tr>
                     <tr>
                         <td style="width:100%;padding-top:0px;padding-bottom:10px">
                             @foreach (var n in s.types)

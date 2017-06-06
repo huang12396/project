@@ -3,11 +3,11 @@
     Layout = "/Views/Shared/_ContentLayout.cshtml";
 }
 <div>
-    <p>酒品：@ViewBag.catalogName</p>
+    <p>酒品类别：@ViewBag.catalogName</p>
     @foreach (ProductList pl in ViewBag.catProducts as List<ProductList>)
     {
         <div class="list">
-            <dl class="col-md-2" pid="1001">
+            <dl class="col-md-2">
                 <dt>
                     <a href='Home/Detail/@pl.p.ProductNo'><img class="img-responsive" src="~/images/@pl.pn.PicName"></a><br />
                 </dt>

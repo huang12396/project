@@ -7,7 +7,7 @@
 <head>
     <meta charset="utf-8" http-equiv="content-type" content="text/html">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    <link rel="stylesheet" type="text/css" href="~/assets/lib/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/style_index.css">
     <!--[if lt IE 9]>
     <script src="assets/lib/html5shiv/html5shiv.js"></script>
     <script src="assets/lib/respond/respond.min.js"></script>
@@ -22,217 +22,220 @@
             <!--导航-->
             <div class="dh_nav col-md-4">
                 <div class="dhbtn">
-                    <h2><a href="#">全部商品分类</a></h2>
-                    <ul class="box">
-                        <li class="a1">
-                            <div class="icon"><a href="#"><i>&nbsp;</i>白酒</a></div>
-                            <dl>
-                                <dt>热门</dt>
-                                <dd>
-                                    <a href="#">茅台</a>
-                                    <a href="#">五粮液</a>
-                                    <a href="#">汾酒</a>
-                                    <a href="#">泸州老窖</a>
-                                </dd>
-                            </dl>
-                            <div class="pop">
-                                <h3><a href="#">白酒</a></h3>
-                                <dl>
-                                    <dt>品牌</dt>
-                                    <dd>
-                                        <a href="#">茅台</a>
-                                        <a href="#">五粮液</a>
-                                        <a href="#">汾酒</a>
-                                        <a href="#">泸州老窖</a>
-                                        <a href="#">剑南春</a>
-                                        <a href="#">扳倒井</a>
-                                        <a href="#">杏花村</a>
-                                    </dd>
-                                </dl>
-                            </div>
-                    </ul>
+                    <h2>全部商品分类</h2> 
+                    <table>
+                        @foreach (ProductCat typeGroup in Model.productCats)
+                        {
+                            <tr><td style="color:midnightblue;font:12px 微软雅黑;text-align:center;"><span>@typeGroup.typeName</span></td></tr>
+                            <tr>
+                                <td style="width:100%;padding-top:0px;padding-bottom:10px">
+                                    @foreach (ProductClassification n in typeGroup.types)
+                                    {
+                                        <div style="float:left;text-align:center;width:50%"><a href='Home/Catalog?typeId=@n.ObjId&typeName=@n.Cname'>@n.Cname</a></div>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </table>
 
                     @*<ul class="box">
-                            <li class="a1">
-                                <div class="icon"><a href="#"><i>&nbsp;</i>白酒</a></div>
+                        <li class="a1">
+                            <div class="icon">
                                 <dl>
-                                    <dt>热门</dt>
-                                    <dd>
-                                        <a href="#">茅台</a>
-                                        <a href="#">五粮液</a>
-                                        <a href="#">汾酒</a>
-                                        <a href="#">泸州老窖</a>
-                                    </dd>
-                                </dl>
-                                <div class="pop">
-                                    <h3><a href="#">白酒</a></h3>
-                                    <dl>
-                                        <dt>品牌</dt>
-                                        <dd>
-                                            <a href="#">茅台</a>
-                                            <a href="#">五粮液</a>
-                                            <a href="#">汾酒</a>
-                                            <a href="#">泸州老窖</a>
-                                            <a href="#">剑南春</a>
-                                            <a href="#">扳倒井</a>
-                                            <a href="#">杏花村</a>
-                                        </dd>
-                                    </dl>
-                                    <dl>
-                                        <dt>产地</dt>
-                                        <dd>
-                                            <a href="#">贵州</a>
-                                            <a href="#">四川</a>
-                                            <a href="#">山西</a>
-                                            <a href="#">江苏</a>
-                                            <a href="#">安徽</a>
-                                            <a href="#">湖北</a>
-                                        </dd>
-                                    </dl>
-                                    <dl>
-                                        <dt>价格</dt>
-                                        <dd>
-                                            <a href="#">1-99元</a>
-                                            <a href="#">100-299元</a>
-                                            <a href="#">300-599元</a>
-                                            <a href="#">600-999元</a>
-                                            <a href="#">1000元及以上</a>
-                                        </dd>
-                                    </dl>
-                                </div>
-                            </li>
-                            <li class="a2">
-                                <div class="icon"><a href="#"><i>&nbsp;</i>葡萄酒</a></div>
-                                <dl>
-                                    <dt>推荐</dt>
-                                    <dd>
-                                        <a href="#">茉莉花</a>
-                                        <a href="#">丁戈树</a>
-                                        <a href="#">长城</a>
-                                        <a href="#">黄尾袋鼠</a>
-                                    </dd>
-                                </dl>
-                                <div class="pop">
-                                    <h3><a href="#">葡萄酒</a></h3>
-                                    <dl>
-                                        <dt>品牌</dt>
-                                        <dd>
-                                            <a href="#">拉菲</a>
-                                            <a href="#">奔富</a>
-                                            <a href="#">长城</a>
-                                            <a href="#">黄尾袋鼠</a>
-                                            <a href="#">杰卡斯</a>
-                                            <a href="#">蒙特斯</a>
-                                            <a href="#">张裕</a>
-                                        </dd>
-                                    </dl>
-                                    <dl>
-                                        <dt>产地</dt>
-                                        <dd>
-                                            <a href="#">法国</a>
-                                            <a href="#">澳大利亚</a>
-                                            <a href="#">意大利</a>
-                                            <a href="#">中国</a>
-                                            <a href="#">南非</a>
-                                            <a href="#">智利</a>
-                                        </dd>
-                                    </dl>
-                                    <dl>
-                                        <dt>价格</dt>
-                                        <dd>
-                                            <a href="#">1-99元</a>
-                                            <a href="#">100-299元</a>
-                                            <a href="#">300-599元</a>
-                                            <a href="#">600-999元</a>
-                                            <a href="#">1000元及以上</a>
-                                        </dd>
-                                    </dl>
+                                    @foreach(ProductCat typeGroup in Model.productCats)
+                                    {
+                                        <dt><span>@typeGroup.typeName</span></dt>
 
-                                </div>
-                            </li>
-                            <li class="a3">
-                                <div class="icon"><a href="#"><i>&nbsp;</i>洋酒</a></div>
-                                <dl>
-                                    <dt>推荐</dt>
-                                    <dd>
-                                        <a href="#">威士忌</a>
-                                        <a href="#">人头马</a>
-                                        <a href="#">白兰地</a>
-                                        <a href="#">马爹利</a>
-                                    </dd>
-                                </dl>
-                                <div class="pop">
-                                    <h3><a href="#">洋酒</a></h3>
-                                    <dl>
-                                        <dt>品牌</dt>
-                                        <dd>
-                                            <a href="#">芝华士</a>
-                                            <a href="#">杰克丹尼</a>
-                                            <a href="#">人头马</a>
-                                            <a href="#">尊尼获加</a>
-                                            <a href="#">轩尼诗</a>
-                                            <a href="#">马爹利</a>
-                                            <a href="#">占边</a>
-                                        </dd>
-                                    </dl>
-                                    <dl>
-                                        <dt>品类</dt>
-                                        <dd>
-                                            <a href="#">白兰地</a>
-                                            <a href="#">威士忌</a>
-                                            <a href="#">伏特加</a>
-                                            <a href="#">龙舌兰</a>
-                                            <a href="#">朗姆酒</a>
-                                            <a href="#">预调酒</a>
-                                        </dd>
-                                    </dl>
-                                    <dl>
-                                        <dt>价格</dt>
-                                        <dd>
-                                            <a href="#">1-99元</a>
-                                            <a href="#">100-299元</a>
-                                            <a href="#">300-599元</a>
-                                            <a href="#">600-999元</a>
-                                            <a href="#">1000元及以上</a>
-                                        </dd>
-                                    </dl>
-                                </div>
-                            </li>
-                            <li class="a4">
-                                <div class="icon"><a href="#"><i>&nbsp;</i>啤酒</a></div>
-                                <dl>
-                                    <dt>推荐</dt>
-                                    <dd>
-                                        <a href="#">青岛</a>
-                                        <a href="#">嘉士伯</a>
-                                        <a href="#">喜力</a>
-                                        <a href="#">百威</a>
-                                    </dd>
-                                </dl>
-                                <div class="pop">
-                                    <h3><a href="#">啤酒</a></h3>
-                                    <dl>
-                                        <dt>品牌</dt>
-                                        <dd>
-                                            <a href="#">青岛</a>
-                                            <a href="#">嘉士伯</a>
-                                            <a href="#">喜力</a>
-                                            <a href="#">百威</a>
-                                        </dd>
-                                    </dl>
-                                    <dl>
-                                        <dt>价格</dt>
-                                        <dd>
-                                            <a href="#">1-99元</a>
-                                            <a href="#">100-299元</a>
-                                            <a href="#">300-599元</a>
-                                            <a href="#">600-999元</a>
-                                            <a href="#">1000元及以上</a>
-                                        </dd>
-                                    </dl>
-                                </div>
-                            </li>
-                        </ul>*@
+                                        foreach (ProductClassification n in typeGroup.types)
+                                        {
+                                            <dd><a href='Home/Catalog?typeId=@n.ObjId&typeName=@n.Cname'>@n.Cname</a></dd>
+
+                                        }
+                                    }
+                                </dl> 
+                            </div>
+                    </ul>*@
+                    @*<ul class="box">
+                <li class="a1">
+                    <div class="icon"><a href="#"><i>&nbsp;</i>白酒</a></div>
+                    <dl>
+                        <dt>热门</dt>
+                        <dd>
+                            <a href="#">茅台</a>
+                            <a href="#">五粮液</a>
+                            <a href="#">汾酒</a>
+                            <a href="#">泸州老窖</a>
+                        </dd>
+                    </dl>
+                    <div class="pop">
+                        <h3><a href="#">白酒</a></h3>
+                        <dl>
+                            <dt>品牌</dt>
+                            <dd>
+                                <a href="#">茅台</a>
+                                <a href="#">五粮液</a>
+                                <a href="#">汾酒</a>
+                                <a href="#">泸州老窖</a>
+                                <a href="#">剑南春</a>
+                                <a href="#">扳倒井</a>
+                                <a href="#">杏花村</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>产地</dt>
+                            <dd>
+                                <a href="#">贵州</a>
+                                <a href="#">四川</a>
+                                <a href="#">山西</a>
+                                <a href="#">江苏</a>
+                                <a href="#">安徽</a>
+                                <a href="#">湖北</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>价格</dt>
+                            <dd>
+                                <a href="#">1-99元</a>
+                                <a href="#">100-299元</a>
+                                <a href="#">300-599元</a>
+                                <a href="#">600-999元</a>
+                                <a href="#">1000元及以上</a>
+                            </dd>
+                        </dl>
+                    </div>
+                </li>
+                <li class="a2">
+                    <div class="icon"><a href="#"><i>&nbsp;</i>葡萄酒</a></div>
+                    <dl>
+                        <dt>推荐</dt>
+                        <dd>
+                            <a href="#">茉莉花</a>
+                            <a href="#">丁戈树</a>
+                            <a href="#">长城</a>
+                            <a href="#">黄尾袋鼠</a>
+                        </dd>
+                    </dl>
+                    <div class="pop">
+                        <h3><a href="#">葡萄酒</a></h3>
+                        <dl>
+                            <dt>品牌</dt>
+                            <dd>
+                                <a href="#">拉菲</a>
+                                <a href="#">奔富</a>
+                                <a href="#">长城</a>
+                                <a href="#">黄尾袋鼠</a>
+                                <a href="#">杰卡斯</a>
+                                <a href="#">蒙特斯</a>
+                                <a href="#">张裕</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>产地</dt>
+                            <dd>
+                                <a href="#">法国</a>
+                                <a href="#">澳大利亚</a>
+                                <a href="#">意大利</a>
+                                <a href="#">中国</a>
+                                <a href="#">南非</a>
+                                <a href="#">智利</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>价格</dt>
+                            <dd>
+                                <a href="#">1-99元</a>
+                                <a href="#">100-299元</a>
+                                <a href="#">300-599元</a>
+                                <a href="#">600-999元</a>
+                                <a href="#">1000元及以上</a>
+                            </dd>
+                        </dl>
+
+                    </div>
+                </li>
+                <li class="a3">
+                    <div class="icon"><a href="#"><i>&nbsp;</i>洋酒</a></div>
+                    <dl>
+                        <dt>推荐</dt>
+                        <dd>
+                            <a href="#">威士忌</a>
+                            <a href="#">人头马</a>
+                            <a href="#">白兰地</a>
+                            <a href="#">马爹利</a>
+                        </dd>
+                    </dl>
+                    <div class="pop">
+                        <h3><a href="#">洋酒</a></h3>
+                        <dl>
+                            <dt>品牌</dt>
+                            <dd>
+                                <a href="#">芝华士</a>
+                                <a href="#">杰克丹尼</a>
+                                <a href="#">人头马</a>
+                                <a href="#">尊尼获加</a>
+                                <a href="#">轩尼诗</a>
+                                <a href="#">马爹利</a>
+                                <a href="#">占边</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>品类</dt>
+                            <dd>
+                                <a href="#">白兰地</a>
+                                <a href="#">威士忌</a>
+                                <a href="#">伏特加</a>
+                                <a href="#">龙舌兰</a>
+                                <a href="#">朗姆酒</a>
+                                <a href="#">预调酒</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>价格</dt>
+                            <dd>
+                                <a href="#">1-99元</a>
+                                <a href="#">100-299元</a>
+                                <a href="#">300-599元</a>
+                                <a href="#">600-999元</a>
+                                <a href="#">1000元及以上</a>
+                            </dd>
+                        </dl>
+                    </div>
+                </li>
+                <li class="a4">
+                    <div class="icon"><a href="#"><i>&nbsp;</i>啤酒</a></div>
+                    <dl>
+                        <dt>推荐</dt>
+                        <dd>
+                            <a href="#">青岛</a>
+                            <a href="#">嘉士伯</a>
+                            <a href="#">喜力</a>
+                            <a href="#">百威</a>
+                        </dd>
+                    </dl>
+                    <div class="pop">
+                        <h3><a href="#">啤酒</a></h3>
+                        <dl>
+                            <dt>品牌</dt>
+                            <dd>
+                                <a href="#">青岛</a>
+                                <a href="#">嘉士伯</a>
+                                <a href="#">喜力</a>
+                                <a href="#">百威</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>价格</dt>
+                            <dd>
+                                <a href="#">1-99元</a>
+                                <a href="#">100-299元</a>
+                                <a href="#">300-599元</a>
+                                <a href="#">600-999元</a>
+                                <a href="#">1000元及以上</a>
+                            </dd>
+                        </dl>
+                    </div>
+                </li>
+            </ul>*@
                 </div>
             </div>
 
