@@ -38,7 +38,7 @@ namespace WebApplication2.Controllers
             }
 
             //获取推荐商品(4种)
-            var recProducts = db.Product.Where<Product>(m => m.ProductId > 001).OrderBy<Product, float>(m => (float)m.Price).Take<Product>(4);
+            var recProducts = db.Product.Where<Product>(m => m.ProductId > 001).OrderBy<Product, string>(m => (string)m.ProductName).Take<Product>(4);
             foreach (var p in recProducts)
             {
                 ProductList pl = new ProductList();
