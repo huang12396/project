@@ -8,9 +8,12 @@ namespace WebApplication2.Controllers
 {
     public class OrderController : Controller
     {
-        public IActionResult Index()
-        {
-            return View();
+       
+            public IActionResult Order(string returnUrl = null)
+            {
+                ViewData["ReturnUrl"] = returnUrl;
+                return View();
+            }
         }
-    }
+    
 }
