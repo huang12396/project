@@ -3,3 +3,33 @@
     ViewBag.Title = "会员中心";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@section Scripts
+{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+    <script>
+    function modiInfo() {
+        var val = document.getElementById("btnModiInfo").value;
+        if (val == "修改信息") {
+            setEditable();
+        }
+        else {
+            //1。测试用户名是否唯一。如果不唯一则提示并中断提交
+            var xmlhttp = new XMLHttpRequest();
+            var curUserId = document.getElementById("userId").value;
+            //2。提交有效信息，更新成功
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+                    if (xmlhttp.responseText.trim() == "1" || xmlhttp.responseText.trim() == "0")
+                        setReadonly();//3。恢复到只读状态
+                    else
+                        alert("信息提交不成功，请重新尝试！");
+            }
+            xmlhttp.open("post", "/Account/updateMemberInfo", true);
+            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xmlhttp.send("memberId=" + curUserId +
+                        "&memberSex=" + document.getElementById("memberSex").value +
+                        "&memberAddr=" + document.getElementById("memberAddr").value +
+                        "&memberTel=" + document.getElementById("memberTel").value
+                    );
+        }
+    }
