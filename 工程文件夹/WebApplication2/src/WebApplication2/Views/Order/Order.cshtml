@@ -24,7 +24,7 @@
 <body>
     <div class="col-sm-offset-3 col-sm-6 main">
         <div class="biaoqian">
-            <img src="C:\Users\91138\Desktop\新建文件夹\捕获.PNG" alt="">
+            <img src="~/images/捕获.PNG" alt="">
 
         </div>
         <!--收货地址-->
@@ -50,19 +50,19 @@
         <div class="shangpin">
             <h3>确认订单信息</h3>
             <div>
-                <table id="table" cellspacing="0" cellpadding="0" border="1" width="100" class="hide">
+                <table id="table" cellspacing="0" cellpadding="0"  width="100%" class="">
                     <thead>
                         <tr>
                             <td width="8%" height="34">
                                 <input class="ck" name="checkbox" type="checkbox" id="allCheck">
                                 <label for="checkbox0_t" style="cursor: pointer;">全选</label>
                             </td>
-                            <td width="5%">图片</td>
+                            <td width="20%">图片</td>
                             <td width="20%">商品名称</td>
-                            <td width="25%">数量</td>
-                            <td width="13%">单价</td>
-                            <td width="13%">小计</td>
-                            <td width="13%">操作</td>
+                            <td width="20%">数量</td>
+                            <td width="20%">单价</td>
+                            <td width="20%">小计</td>
+                            
                         </tr>
                     </thead>
                     <tbody id="tbody"></tbody>
@@ -70,15 +70,16 @@
             </div>
         </div>
         <!--结算-->
+        <h3>结算信息</h3>
         <div class="jiesuan">
-            <label for="">
-                实付款：
+            <p>实付款：</p>
+               
 
-            </label>
-            <input type="button" name="" value="提交订单">
+          
+            <input type="button" name="" value="提交订单"/>
         </div>
 
-    
+   
     <script type="text/javascript" src="~/assets/js/server.js"></script>
     <script type="text/javascript" src="~/assets/js/index.js"></script>
 </body>
