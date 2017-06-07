@@ -1,0 +1,25 @@
+.biaoqian{
+  
+  text-align: right;
+  margin-bottom: 50px;
+}
+.dizhi{
+  height: 150px;
+  border: 1px solid rgb(193, 193, 193);
+  margin-bottom: 50px;
+}
+.zhifu{
+  line-height: 50px;
+  height: 70px;
+  border: 1px solid rgb(193, 193, 193);
+  margin-bottom: 50px;
+}
+.zhifu lable{
+  margin-right: 20px;
+}
+.jiesuan{
+  width: 200px;
+
+  border: 1px solid rgb(193, 193, 193);
+
+}

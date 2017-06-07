@@ -1,28 +1,19 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-    ViewBag.title = "Order";
-    ViewBag.countBuy = "/";
-
-}
-
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" http-equiv="content-type" content="text/html">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    <link rel="stylesheet" type="text/css" href="~/assets/css/style_index.css">
-    <!--[if lt IE 9]>
-    <script src="assets/lib/html5shiv/html5shiv.js"></script>
-    <script src="assets/lib/respond/respond.min.js"></script>
-    <![endif]-->
-    <link rel="stylesheet" type="text/css" href="~/assets/css/style_order.css">
-    <script src="~/assets/js/cookie.js" type="text/javascript" charset="utf-8"></script>
+  <meta charset="utf-8" http-equiv="content-type" content="text/html">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <link rel="stylesheet" type="text/css" href="../assets/lib/css/bootstrap.min.css">
+  <!--[if lt IE 9]>
+  <script src="assets/lib/html5shiv/html5shiv.js"></script>
+  <script src="assets/lib/respond/respond.min.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" type="text/css" href="D:\project\工程文件夹\WebApplication2\src\WebApplication2\wwwroot\assets\css\style_order.css">
+    <script src="D:\project\工程文件夹\WebApplication2\src\WebApplication2\wwwroot\assets\js\cookie.js" type="text/javascript" charset="utf-8"></script>
     <title>商品结算</title>
 </head>
 <body>
-    <div class="col-sm-offset-3 col-sm-6 main">
+    <div class="col-sm-offset-3 col-sm-6">
         <div class="biaoqian">
             <img src="C:\Users\91138\Desktop\新建文件夹\捕获.PNG" alt="">
 
@@ -50,8 +41,8 @@
         <div class="shangpin">
             <h3>确认订单信息</h3>
             <div>
-                <table id="table" cellspacing="0" cellpadding="0" border="1" width="100" class="hide">
-                    <thead>
+                <table id="table" cellspacing="0" cellpadding="0" border="1" width="100%" class="hide">
+
                         <tr>
                             <td width="8%" height="34">
                                 <input class="ck" name="checkbox" type="checkbox" id="allCheck">
@@ -64,22 +55,22 @@
                             <td width="13%">小计</td>
                             <td width="13%">操作</td>
                         </tr>
-                    </thead>
+
                     <tbody id="tbody"></tbody>
                 </table>
             </div>
-        </div>
-        <!--结算-->
-        <div class="jiesuan">
-            <label for="">
-                实付款：
+            <!--结算-->
+            <div class="jiesuan">
+                <label for="">
+                    实付款：
 
-            </label>
-            <input type="button" name="" value="提交订单">
+                </label>
+                <input type="button" name="" value="提交订单">
+            </div>
         </div>
-
-    
-    <script type="text/javascript" src="~/assets/js/server.js"></script>
-    <script type="text/javascript" src="~/assets/js/index.js"></script>
+      </div>
+        <script src="../assets/lib/jquery/jquery-1.11.0.min.js"></script>
+        <script src="../assets/lib/js/bootstrap.js"></script>
+    </body>
 </body>
 </html>
