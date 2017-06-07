@@ -1,17 +1,17 @@
 .biaoqian{
-  
+margin-top: 30px;
   text-align: right;
   margin-bottom: 50px;
 }
 .dizhi{
   height: 150px;
-  border: 1px solid rgb(193, 193, 193);
+  border: 1px solid rgb(221, 221, 221);
   margin-bottom: 50px;
 }
 .zhifu{
   line-height: 50px;
   height: 70px;
-  border: 1px solid rgb(193, 193, 193);
+  border: 1px solid rgb(221, 221, 221);
   margin-bottom: 50px;
 }
 .zhifu lable{
@@ -20,6 +20,14 @@
 .jiesuan{
   width: 200px;
 
-  border: 1px solid rgb(193, 193, 193);
+  border: 1px solid rgb(221, 221, 221);
+
+}
+.shangpin table{
+  border: 1px solid rgb(221, 221, 221);
+
+}
+.shangpin td{
+  border: 1px solid rgb(221, 221, 221);
 
 }
