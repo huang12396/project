@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - WebApplication2</title>
+    <title>@ViewData["Title"] - 酒品交易网</title>
 
     <environment names="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -30,7 +30,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#" id="nav-brand-itheima">
+                    <a class="navbar-brand" asp-controller="Home" asp-action="Index" id="nav-brand-itheima">
                         <img src="~/assets/img/logo.png" alt="网站logo" />
                     </a>
                 </div>
@@ -41,10 +41,10 @@
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">购物导航<b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">白酒</a></li>
-                                <li><a href="#">葡萄酒</a></li>
-                                <li><a href="">洋酒</a></li>
-                                <li><a href="">啤酒</a></li>
+                                <li>白酒</li>
+                                <li>葡萄酒</li>
+                                <li>洋酒</li>
+                                <li>啤酒</li>
                             </ul>
                         </li>
                         <li class="dropdown">
