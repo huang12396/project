@@ -18,8 +18,7 @@ namespace WebApplication2.Models
     {
         public Product p { get; set; }
         public Ppics pn { get; set; }
-    }
-   
+    }        
     public class ProductCat
     {
         public string typeName { get; set; }

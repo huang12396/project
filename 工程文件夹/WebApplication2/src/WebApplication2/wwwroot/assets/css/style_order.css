@@ -1,32 +1,12 @@
 .biaoqian{
-margin-top: 50px;
+margin-top: 30px;
   text-align: right;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 }
 .dizhi{
-  height: 220px;
+  height: 150px;
   border: 1px solid rgb(221, 221, 221);
-  padding-top: 10px;
-}
-.xxdz input{
-  width: 525px;
-}
-.dizhi input{
-  border: 1px solid rgb(221, 221, 221);
-
-}
-.xiangxi{
-  margin-top: 10px;
-}
-.xiangxi input{
-
-}
-h3{
-  font-weight: bold;
-}
-.xiugaidizhi{
-
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 }
 .zhifu{
   line-height: 50px;
