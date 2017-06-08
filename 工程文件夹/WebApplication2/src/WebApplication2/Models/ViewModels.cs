@@ -43,7 +43,7 @@ namespace WebApplication2.Models
         [Compare("NewPassword", ErrorMessage = "新密码和确认密码不匹配。")]
         public string ConfirmPassword { get; set; }
         //public LocalPasswordModel PassWordModel { get; set; }
-        public RegisterModel CustomerInfo { get; set; }
+        public RegisterViewModel CustomerInfo { get; set; }
     }
     public class ProductDtl
     {
