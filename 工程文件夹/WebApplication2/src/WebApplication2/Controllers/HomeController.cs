@@ -108,10 +108,14 @@ namespace WebApplication2.Controllers
             return View();
         }
 
-        public IActionResult Detail(string returnUrl = null)
+        public IActionResult Detail(String PNo)
         {
-            ViewData["ReturnUrl"] = returnUrl;
-            return View();
+            ProductDtl pd = new ProductDtl();
+            pd.p = db.Product.Where<Product>(m => m.ProductNo == PNo).First<Product>();
+            pd.productpics = db.Ppics.Where<Ppics>(m => m.ProductNo == PNo && m.PicType == "1");
+            pd.pnd = db.Ppics.Where<Ppics>(m => m.ProductNo == PNo && m.PicType == "2").First<Ppics>();
+            pd.pdtl = db.Pdetail.Where<Pdetail>(m => m.ProductNo == PNo).First<Pdetail>();
+            return View(pd);
         }
     }
 }

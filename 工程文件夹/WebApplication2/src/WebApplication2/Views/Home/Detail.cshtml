@@ -1,6 +1,9 @@
-﻿@{
+﻿@model ProductDtl
+@{
     ViewData["Title"] = "detail";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    int picno = 1;
+    string picdisp = "active";
 }
 <!DOCTYPE html>
 <html>
@@ -19,31 +22,39 @@
                         <div id="myCarousel" class="carousel slide" data-ride="carousel">
                             <!--小点点-->
                             <ol class="carousel-indicators">
-                                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                <li data-target="#myCarousel" data-slide-to="0"></li>
                                 <li data-target="#myCarousel" data-slide-to="1"></li>
                                 <li data-target="#myCarousel" data-slide-to="2"></li>
                             </ol>
                             <div class="carousel-inner" role="listbox">
-                                <div class="item active">
-                                    <a href="#"><img src="~/assets/img/剑南春52°_1.jpg" alt="1" /></a>
+                                @*<div class="item active">
+                                    <a href="#"><img src="~/images/" alt="1" /></a>
                                 </div>
                                 <div class="item">
-                                    <a href="#"><img src="~/assets/img/剑南春52°_2.jpg" alt="2" /></a>
+                                    <a href="#"><img src="~/images/" alt="2" /></a>
                                 </div>
                                 <div class="item">
-                                    <a href="#"><img src="~/assets/img/剑南春52°_3.jpg" alt="3" /></a>
-                                </div>
+                                    <a href="#"><img src="~/images/" alt="3" /></a>
+                                </div>*@
+                                @foreach (Ppics pc in Model.productpics)
+                                {
+                                    <div class="item @picdisp">
+                                        <a href="#"><img src="~/images/@pc.PicName" alt="@picno" /></a>
+                                    </div>
+                                    picno++;
+                                    picdisp = null;
+                                }
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <h3>剑南春52°白酒</h3>
+                        <h3>@Model.p.ProductName</h3>
                         <p id="goodsp">&nbsp;&nbsp;&nbsp;&nbsp;陈年老酒代表着一段珍贵的岁月印记，是对时间的纪念更是对人生重要时刻的回味。</p>
                         <div>
                             <div id="pricon">
                                 <div class="jgbox">价格：</div>
                                 <div class="infopri">
-                                    <span class="pri"><em>¥</em><strong>329.00</strong></span>
+                                    <span class="pri"><em>¥</em><strong>@Model.p.Price</strong></span>
                                 </div>
                             </div>
                             <br>
@@ -71,11 +82,7 @@
                         <div class="row feature">
                             <div class="col-md-8">
                                 <div class="disp">
-                                    <img src="~/assets/img/spxq1.jpg">
-                                    <img src="~/assets/img/spxq2.jpg">
-                                    <img src="~/assets/img/spxq3.jpg">
-                                    <img src="~/assets/img/spxq4.jpg">
-                                    <img src="~/assets/img/spxq5.jpg">
+                                    <img src="~/images/@Model.pnd.PicName">
                                 </div>
                             </div>
                         </div>
@@ -86,40 +93,36 @@
                                 <table width="600px" border="0" cellspacing="0" cellpadding="0">
                                     <tbody>
                                         <tr>
-                                            <th class="bg">产地</th>
-                                            <th>中国,四川</th>
-                                        </tr>
-                                        <tr>
                                             <th class="bg">香型</th>
-                                            <th>浓香型</th>
+                                            <th>@Model.pdtl.XiangXing</th>
                                         </tr>
                                         <tr>
                                             <th class="bg">原料</th>
-                                            <th>高粱、大米、糯米、小麦、玉米</th>
+                                            <th>@Model.pdtl.Yuanliao</th>
                                         </tr>
                                         <tr>
                                             <th class="bg">储藏条件</th>
-                                            <th>常温、干燥、阴凉、避光。</th>
+                                            <th>@Model.pdtl.Chucangtiaojian</th>
                                         </tr>
                                         <tr>
                                             <th class="bg">酒厂</th>
-                                            <th>四川绵竹剑南春酒厂有限公司</th>
+                                            <th>@Model.pdtl.Jiuchang</th>
                                         </tr>
                                         <tr>
                                             <th class="bg">净含量</th>
-                                            <th>500ml</th>
+                                            <th>@Model.pdtl.Jinghanliang</th>
                                         </tr>
                                         <tr>
-                                            <th class="bg">酿造s工艺</th>
-                                            <th>低温入窖，粮糟缓慢糖化、发酵升温成酒</th>
+                                            <th class="bg">酿造工艺</th>
+                                            <th>@Model.pdtl.Gongyi</th>
                                         </tr>
                                         <tr>
                                             <th class="bg">酒精度</th>
-                                            <th>52</th>
+                                            <th>@Model.pdtl.Jiujingdu</th>
                                         </tr>
                                         <tr>
                                             <th class="bg">箱规</th>
-                                            <th>1*6</th>
+                                            <th>@Model.pdtl.Xianggui</th>
                                         </tr>
                                     </tbody>
                                 </table>

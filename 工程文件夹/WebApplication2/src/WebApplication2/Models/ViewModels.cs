@@ -45,4 +45,11 @@ namespace WebApplication2.Models
         //public LocalPasswordModel PassWordModel { get; set; }
         public RegisterModel CustomerInfo { get; set; }
     }
+    public class ProductDtl
+    {
+        public Product p { get; set; }
+        public IEnumerable<Ppics> productpics { get; set; }
+        public Ppics pnd { get; set; }
+        public Pdetail pdtl { get; set; }
+    }
 }
