@@ -53,4 +53,12 @@ namespace WebApplication2.Models
         public Ppics pnd { get; set; }
         public Pdetail pdtl { get; set; }
     }
+    public class CartItem
+    {
+        public string ProductName { get; set; }
+        public string feature { get; set; }
+        public decimal Price { get; set; }
+        public int qty { get; set; }
+        public string PicName { get; set; }
+    }
 }
