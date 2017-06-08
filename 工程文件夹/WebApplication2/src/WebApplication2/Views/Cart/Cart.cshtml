@@ -1,6 +1,40 @@
 ﻿@{
     ViewBag.Title = "Cart";
+    int cartRow = 0;
 }
+@using WebApplication2.Models;
+<script>
+    function _doEdit(row){
+        document.getElementById('edit_' + row).style.display = 'none';
+        document.getElementById('update_' + row).style.display = 'block';
+        document.getElementById('qtyDsp_' + row).style.display = 'none';
+        document.getElementById('qtyIn_' + row).style.display = 'block';
+    }
+    function _doUpdate(row, oldvalue, retUrl) {
+        var newValue = document.getElementById('inQty_' + row).value;
+        if (newValue != oldvalue) {
+            window.location.assign("/Cart/updateCartRow/" + row + "?value=" + newValue + "&retUrl=" + retUrl);
+        }
+        else
+            _doCancel(row);
+    }
+    function _doCancel(row) {
+        document.getElementById('edit_' + row).style.display = 'block';
+        document.getElementById('update_' + row).style.display = 'none';
+        document.getElementById('qtyDsp_' + row).style.display = 'block';
+        document.getElementById('qtyIn_' + row).style.display = 'none';
+    }
+    function _doDelete(row, retUrl) {
+        window.location.assign("/Cart/deleCartRow/" + row + "?retUrl=" + retUrl);
+    }
+
+    function _doStore(row, retUrl) {
+        window.location.assign("/Cart/storeCartRow/" + row + "?retUrl=" + retUrl);
+    }
+    function _doBuy(row, retUrl) {
+        window.location.assign("/Cart/buyFaviRow/" + row + "?retUrl=" + retUrl);
+    }
+</script>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,35 +42,52 @@
 </head>
 <body>
     <div class="container">
-        <h1>购物车</h1>
-        <div>
-            <table id="table" cellspacing="0" cellpadding="0" border="1" width="100%" class="hide">
-                <thead>
-                    <tr>
-                        <td width="8%" height="34">
-                            <input class="ck" name="checkbox" type="checkbox" id="allCheck">
-                            <label for="checkbox0_t" style="cursor: pointer;">全选</label>
+        @if (ViewBag.cart != null && ((List<CartItem>)ViewBag.cart).Count >= 1)
+        {
+            <table border="1" style="background-color:White;border-width:1px;border-style:Double;font-size:X-Small;width:95%;border-collapse:collapse;">
+                <caption style="font-size:14px;">我的购物车</caption>
+                <tr style="color:#FFFFCC;background-color:#990000;font-weight:bold;">
+                    <th scope="col">&nbsp;</th>
+                    <th scope="col" style="text-align:center;">商品名</th>
+                    <th scope="col" style="text-align:center;">商品描述</th>
+                    <th scope="col" style="text-align:center;">网购价</th>
+                    <th scope="col" style="text-align:center;">数量</th>
+                    <th scope="col" style="text-align:center;">图片</th>
+                    <th scope="col">&nbsp;</th>
+                    <th scope="col">&nbsp;</th>
+                </tr>
+                @foreach (var cartItem in ViewBag.cart as List<CartItem>)
+                {
+                    <tr style="color:#330099;background-color:White;">
+                        <td style="border:1px solid;text-align:center;">
+                            <div id="edit_@cartRow" style="display:block;">
+                                <a href="javascript:_doEdit(@cartRow)" style="color:#330099;">编辑</a>
+                            </div>
+                            <div id="update_@cartRow" style="display:none;">
+                                <a href="javascript:_doUpdate(@cartRow,@cartItem.qty,'@ViewBag.continueBuy')" style="color:#330099;">更新</a>&nbsp;&nbsp;
+                                <a href="javascript:_doCancel(@cartRow)" style="color:#330099;">取消</a>
+                            </div>
                         </td>
-                        <td width="5%">图片</td>
-                        <td width="20%">商品名称</td>
-                        <td width="25%">数量</td>
-                        <td width="13%">单价</td>
-                        <td width="13%">小计</td>
-                        <td width="13%">操作</td>
+                        <td style="border:1px solid;text-align:center;">@cartItem.ProductName</td>
+                        <td style="border:1px solid;text-align:center;">@cartItem.feature</td>
+                        <td style="border:1px solid;text-align:center;">@cartItem.Price</td>
+                        <td style="border:1px solid;text-align:center;">
+                            <div id="qtyDsp_@cartRow" style="display:block;">@cartItem.qty</div>
+                            <div id="qtyIn_@cartRow" style="display:none;"><input id="inQty_@cartRow" type="number" style="width:30px;" value="@cartItem.qty" /></div>
+                        </td>
+                        <td style="border:1px solid;text-align:center;"><img src="/Images/@cartItem.PicName" style="height:200px;width:200px;border-width:0px;" /></td>
+                        <td style="border:1px solid;text-align:center;"><a href="javascript:_doDelete(@cartRow,'@ViewBag.continueBuy')" style="color:#330099;">删除</a></td>
                     </tr>
-                </thead>
-                <tbody id="tbody"></tbody>
+                    cartRow++;
+                }
             </table>
-            <div class="box" id="box"></div>
-            <h2 id="h2" class="">总价格：￥<span id="totalPrice">0</span></h2>
-        </div>
-        <div>
-            <button class="ZF">支付</button>
-        </div>
+            <table style="width:95%;margin:0px;padding:0px;">
+                <tr>
+                    <td style="text-align:left;"><a href="@ViewBag.continueBuy">继续选购</a></td>
+                    <td style="text-align:right;"><a href="/Order">结算</a></td>
+                </tr>
+            </table>
+        }
     </div>
-
-    <script src="~/assets/js/server.js" type="text/javascript" charset="utf-8"></script>
-    <!--操作购物车页面的cart.js-->
-    <script src="../assets/js/cart.js"></script>
 </body>
 </html>
