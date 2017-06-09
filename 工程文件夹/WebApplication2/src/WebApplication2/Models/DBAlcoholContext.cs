@@ -157,8 +157,6 @@ namespace WebApplication2.Models
 
                 entity.Property(e => e.CustomerUserName).HasColumnType("varchar(8)");
 
-                entity.Property(e => e.CustomerAddr).HasColumnType("varchar(40)");
-
                 entity.Property(e => e.CustomerId).ValueGeneratedOnAdd();
 
                 entity.Property(e => e.CustomerPassword)
@@ -168,50 +166,80 @@ namespace WebApplication2.Models
                 entity.Property(e => e.CustomerSex).HasColumnType("varchar(2)");
 
                 entity.Property(e => e.CustomerTel).HasColumnType("numeric");
+
+                entity.Property(e => e.Email).HasColumnType("char(50)");
+
+                entity.Property(e => e.Qq)
+                    .HasColumnName("QQ")
+                    .HasColumnType("char(11)");
             });
 
-            modelBuilder.Entity<CustomerOrder>(entity =>
+            modelBuilder.Entity<Orders>(entity =>
             {
-                entity.HasKey(e => e.CustomerOrderNo)
-                    .HasName("CustomerOrderPK");
+                entity.HasKey(e => e.ObjId)
+                    .HasName("PK__Orders__4616479E27D74FAD");
 
-                entity.Property(e => e.CustomerOrderNo).HasColumnType("varchar(20)");
+                entity.Property(e => e.Amt).HasColumnName("amt");
 
-                entity.Property(e => e.CustomerOrderId).ValueGeneratedOnAdd();
+                entity.Property(e => e.CustomerUserName).HasColumnType("varchar(8)");
 
-                entity.Property(e => e.CustomerUserName)
+                entity.Property(e => e.OrderAddress).HasColumnType("varchar(100)");
+
+                entity.Property(e => e.OrderId)
                     .IsRequired()
-                    .HasColumnType("varchar(8)");
+                    .HasColumnType("char(10)");
 
-                entity.HasOne(d => d.CustomerUserNameNavigation)
-                    .WithMany(p => p.CustomerOrder)
-                    .HasForeignKey(d => d.CustomerUserName)
-                    .OnDelete(DeleteBehavior.Restrict)
-                    .HasConstraintName("CustomerOrderFK2");
-            });
+                entity.Property(e => e.OrderState).HasColumnType("char(10)");
 
-            modelBuilder.Entity<OrderContains>(entity =>
-            {
-                entity.HasKey(e => new { e.CustomerOrderNo, e.ProductNo })
-                    .HasName("OrderContainsPK");
-
-                entity.Property(e => e.CustomerOrderNo).HasColumnType("varchar(20)");
+                entity.Property(e => e.Phone).HasColumnType("char(14)");
 
                 entity.Property(e => e.ProductNo).HasColumnType("varchar(20)");
 
-                entity.Property(e => e.OrderContainsId).ValueGeneratedOnAdd();
+                entity.HasOne(d => d.CustomerUserNameNavigation)
+                    .WithMany(p => p.Orders)
+                    .HasForeignKey(d => d.CustomerUserName)
+                    .HasConstraintName("OrderFK1");
 
-                entity.HasOne(d => d.CustomerOrderNoNavigation)
-                    .WithMany(p => p.OrderContains)
-                    .HasForeignKey(d => d.CustomerOrderNo)
-                    .OnDelete(DeleteBehavior.Restrict)
-                    .HasConstraintName("OrderContainsFK1");
+                entity.HasOne(d => d.PaymentNoNavigation)
+                    .WithMany(p => p.Orders)
+                    .HasForeignKey(d => d.PaymentNo)
+                    .HasConstraintName("OrderFK3");
 
                 entity.HasOne(d => d.ProductNoNavigation)
-                    .WithMany(p => p.OrderContains)
+                    .WithMany(p => p.Orders)
                     .HasForeignKey(d => d.ProductNo)
-                    .OnDelete(DeleteBehavior.Restrict)
-                    .HasConstraintName("OrderContainsFK2");
+                    .HasConstraintName("OrderFK2");
+            });
+
+            modelBuilder.Entity<Payment>(entity =>
+            {
+                entity.HasKey(e => e.ObjId)
+                    .HasName("PK__Payment__4616479E4BFD7BFE");
+
+                entity.Property(e => e.TransNo).HasColumnType("nchar(16)");
+
+                entity.Property(e => e.TransTime).HasColumnType("datetime");
+
+                entity.HasOne(d => d.ThePaymentTypeNavigation)
+                    .WithMany(p => p.Payment)
+                    .HasForeignKey(d => d.ThePaymentType)
+                    .HasConstraintName("PaymentFK1");
+            });
+
+            modelBuilder.Entity<PaymentType>(entity =>
+            {
+                entity.HasKey(e => e.ObjId)
+                    .HasName("PK__PaymentT__4616479E6B978FB6");
+
+                entity.Property(e => e.Img)
+                    .HasColumnName("img")
+                    .HasMaxLength(80);
+
+                entity.Property(e => e.MethodName).HasColumnType("nchar(50)");
+
+                entity.Property(e => e.TypeName).HasColumnType("varchar(20)");
+
+                entity.Property(e => e.Url).HasColumnType("varchar(100)");
             });
 
             modelBuilder.Entity<Pdetail>(entity =>
@@ -354,8 +382,9 @@ namespace WebApplication2.Models
         public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
         public virtual DbSet<Cart> Cart { get; set; }
         public virtual DbSet<Customer> Customer { get; set; }
-        public virtual DbSet<CustomerOrder> CustomerOrder { get; set; }
-        public virtual DbSet<OrderContains> OrderContains { get; set; }
+        public virtual DbSet<Orders> Orders { get; set; }
+        public virtual DbSet<Payment> Payment { get; set; }
+        public virtual DbSet<PaymentType> PaymentType { get; set; }
         public virtual DbSet<Pdetail> Pdetail { get; set; }
         public virtual DbSet<Ppics> Ppics { get; set; }
         public virtual DbSet<Product> Product { get; set; }

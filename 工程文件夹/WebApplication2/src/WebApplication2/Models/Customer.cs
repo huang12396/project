@@ -8,17 +8,18 @@ namespace WebApplication2.Models
         public Customer()
         {
             Cart = new HashSet<Cart>();
-            CustomerOrder = new HashSet<CustomerOrder>();
+            Orders = new HashSet<Orders>();
         }
 
         public int CustomerId { get; set; }
         public string CustomerSex { get; set; }
         public string CustomerUserName { get; set; }
         public string CustomerPassword { get; set; }
-        public string CustomerAddr { get; set; }
         public decimal? CustomerTel { get; set; }
+        public string Qq { get; set; }
+        public string Email { get; set; }
 
         public virtual ICollection<Cart> Cart { get; set; }
-        public virtual ICollection<CustomerOrder> CustomerOrder { get; set; }
+        public virtual ICollection<Orders> Orders { get; set; }
     }
 }
