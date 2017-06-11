@@ -49,11 +49,9 @@
                 <tr style="color:#FFFFCC;background-color:#990000;font-weight:bold;">
                     <th scope="col">&nbsp;</th>
                     <th scope="col" style="text-align:center;">商品名</th>
-                    <th scope="col" style="text-align:center;">商品描述</th>
-                    <th scope="col" style="text-align:center;">网购价</th>
+                    <th scope="col" style="text-align:center;">价格</th>
                     <th scope="col" style="text-align:center;">数量</th>
                     <th scope="col" style="text-align:center;">图片</th>
-                    <th scope="col">&nbsp;</th>
                     <th scope="col">&nbsp;</th>
                 </tr>
                 @foreach (var cartItem in ViewBag.cart as List<CartItem>)
@@ -69,7 +67,6 @@
                             </div>
                         </td>
                         <td style="border:1px solid;text-align:center;">@cartItem.ProductName</td>
-                        <td style="border:1px solid;text-align:center;">@cartItem.feature</td>
                         <td style="border:1px solid;text-align:center;">@cartItem.Price</td>
                         <td style="border:1px solid;text-align:center;">
                             <div id="qtyDsp_@cartRow" style="display:block;">@cartItem.qty</div>
