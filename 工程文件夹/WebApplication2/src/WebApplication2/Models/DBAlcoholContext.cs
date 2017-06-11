@@ -130,34 +130,33 @@ namespace WebApplication2.Models
 
             modelBuilder.Entity<Cart>(entity =>
             {
-                entity.HasKey(e => new { e.CustomerUserName, e.ProductNo })
-                    .HasName("CartPK");
+                entity.HasKey(e => e.ObjId)
+                    .HasName("PK__Cart__4616479E870F1F09");
 
-                entity.Property(e => e.CustomerUserName).HasColumnType("varchar(8)");
-
-                entity.Property(e => e.ProductNo).HasColumnType("varchar(20)");
+                entity.Property(e => e.ProductNo)
+                    .IsRequired()
+                    .HasColumnType("varchar(20)");
 
                 entity.HasOne(d => d.CustomerUserNameNavigation)
                     .WithMany(p => p.Cart)
                     .HasForeignKey(d => d.CustomerUserName)
-                    .OnDelete(DeleteBehavior.Restrict)
-                    .HasConstraintName("CartFK2");
+                    .HasConstraintName("FK2");
 
                 entity.HasOne(d => d.ProductNoNavigation)
                     .WithMany(p => p.Cart)
                     .HasForeignKey(d => d.ProductNo)
                     .OnDelete(DeleteBehavior.Restrict)
-                    .HasConstraintName("CartFK1");
+                    .HasConstraintName("FK1");
             });
 
             modelBuilder.Entity<Customer>(entity =>
             {
-                entity.HasKey(e => e.CustomerUserName)
+                entity.HasKey(e => e.ObjId)
                     .HasName("CustomerPK");
 
-                entity.Property(e => e.CustomerUserName).HasColumnType("varchar(8)");
-
-                entity.Property(e => e.CustomerId).ValueGeneratedOnAdd();
+                entity.Property(e => e.CustomerId)
+                    .IsRequired()
+                    .HasColumnType("varchar(8)");
 
                 entity.Property(e => e.CustomerPassword)
                     .IsRequired()
@@ -166,6 +165,8 @@ namespace WebApplication2.Models
                 entity.Property(e => e.CustomerSex).HasColumnType("varchar(2)");
 
                 entity.Property(e => e.CustomerTel).HasColumnType("numeric");
+
+                entity.Property(e => e.CustomerUserName).HasColumnType("varchar(8)");
 
                 entity.Property(e => e.Email).HasColumnType("char(50)");
 
@@ -180,8 +181,6 @@ namespace WebApplication2.Models
                     .HasName("PK__Orders__4616479E27D74FAD");
 
                 entity.Property(e => e.Amt).HasColumnName("amt");
-
-                entity.Property(e => e.CustomerUserName).HasColumnType("varchar(8)");
 
                 entity.Property(e => e.OrderAddress).HasColumnType("varchar(100)");
 
@@ -198,7 +197,7 @@ namespace WebApplication2.Models
                 entity.HasOne(d => d.CustomerUserNameNavigation)
                     .WithMany(p => p.Orders)
                     .HasForeignKey(d => d.CustomerUserName)
-                    .HasConstraintName("OrderFK1");
+                    .HasConstraintName("OrdersFK4");
 
                 entity.HasOne(d => d.PaymentNoNavigation)
                     .WithMany(p => p.Orders)
