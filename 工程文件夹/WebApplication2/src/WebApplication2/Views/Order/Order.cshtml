@@ -4,6 +4,7 @@
 @{
     ViewBag.title = "Order";
     ViewBag.countBuy = "/";
+    int orderNo = 0;
 
 }
 
@@ -97,7 +98,22 @@
                             
                         </tr>
                     </thead>
-                    <tbody id="tbody"></tbody>
+                    <tbody id="tbody">
+                        @foreach (var cartItem in Model.orders)
+                        {
+                            <tr style="color:#330099;background-color:White;">
+                                <td width="8%" height="34">
+                                    <input class="ck" name="checkbox" type="checkbox" id="allCheck">
+                                </td>
+                                <td style="border:1px solid;text-align:center;"><img src="~/images/@Model.orders[orderNo].PicName" /></td>
+                                <td style="border:1px solid;text-align:center;">@Model.orders[orderNo].ProductName </td>
+                                <td style="border:1px solid;text-align:center;">@Model.orders[orderNo].qty</td>
+                                <td style="border:1px solid;text-align:center;">@Model.orders[orderNo].price</td>
+                                <td style="border:1px solid;text-align:center;">@Model.payment.Amount</td>
+                            </tr>
+                            orderNo++;
+                        }
+                    </tbody>
                 </table>
             </div>
         </div>

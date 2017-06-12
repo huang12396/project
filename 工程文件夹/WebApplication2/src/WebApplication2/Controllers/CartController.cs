@@ -43,7 +43,6 @@ namespace WebApplication2.Controllers
                                      select
                                      new CartItem
                                      {
-
                                          ProductName = p.ProductName,
                                          Price = p.Price,
                                          qty = curQty,
