@@ -22,9 +22,12 @@ namespace WebApplication2.Controllers
         {
             db = _db;
         }
+        static decimal amount = 0;
+
         [Authorize]
         public ActionResult Index()
         {
+            amount = 0;
             ViewBag.Request = Request;
             //string uid = User.Identity.Name;
             OrderViewModel ovm = new OrderViewModel();
@@ -67,6 +70,7 @@ namespace WebApplication2.Controllers
                 o.Entity.OrderAddress = User.Identity.Name;
                 db.SaveChanges();
                 //}
+                amount += product.Price;
 
             }
             ViewBag.Orders = ovm;
@@ -85,11 +89,11 @@ namespace WebApplication2.Controllers
 
             payId = p.Entity.ObjId;
             PayRequestInfo pri = new PayRequestInfo();
-            pri.Amt = Request.Form["paymentAmt"];
+            pri.Amt = amount.ToString();
             pri.MerId = "Team01";
             pri.MerTransId = payId.ToString();
             pri.PaymentTypeObjId = Request.Form["paymentType"];
-            pri.PostUrl = "http://10.0.14.129:8801/default.aspx";
+            pri.PostUrl = "http://payportal.chinacloudsites.cn";
             pri.ReturnUrl = "http://" + Request.Host + Url.Action("Index", "Payment");
             pri.CheckValue = RemotePost.getCheckValue(pri.MerId, pri.ReturnUrl, pri.PaymentTypeObjId, pri.Amt, pri.MerTransId);
             return View("PayRequest", pri);
