@@ -88,6 +88,7 @@ namespace WebApplication2.Models
         public int ProductNo { get; set; }
         public string ProductName { get; set; }
         public string PicName { get; set; }
+        public double realprice { get; set; }
         public int qty { get; set; }
     }
     public class OrderViewModel

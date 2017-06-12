@@ -53,10 +53,11 @@ namespace WebApplication2.Controllers
                     price = (double)product.Price,
                     ProductName = product.ProductName,
                     qty = curQty,
+                    realprice = curQty * (double)product.Price,
                     PicName = (from pr in db.Ppics where pObjId == int.Parse(pr.ProductNo) select pr.PicName).FirstOrDefault(),
 
                 });
-                ovm.payment.Amount += (int)product.Price;
+                ovm.payment.Amount += (curQty * (double)product.Price);
                 EntityEntry<Orders> o = db.Orders.Add(new Orders());
 
                 o.Entity.ProductNo = product.ProductName;

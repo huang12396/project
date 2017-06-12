@@ -111,7 +111,7 @@
                                     <td style="border:1px solid;text-align:center;">@Model.orders[orderNo].ProductName </td>
                                     <td style="border:1px solid;text-align:center;">@Model.orders[orderNo].qty</td>
                                     <td style="border:1px solid;text-align:center;">@Model.orders[orderNo].price</td>
-                                    <td style="border:1px solid;text-align:center;">@Model.payment.Amount</td>
+                                    <td style="border:1px solid;text-align:center;">@Model.orders[orderNo].realprice</td>
                                 </tr>
                                 orderNo++;
                             }
@@ -122,7 +122,7 @@
             <!--结算-->
             <h3>结算信息</h3>
             <div class="jiesuan">
-                <p>实付款：</p>
+                <p>实付款：@Model.payment.Amount</p>
 
 
 
