@@ -61,4 +61,30 @@ namespace WebApplication2.Models
         public int qty { get; set; }
         public string PicName { get; set; }
     }
+    public class OrderList
+    {
+        public DateTime orderTime { get; set; }
+        public double amt { get; set; }
+        public string orderState { get; set; }
+        public string productName { get; set; }
+        public string PicName { get; set; }
+        public DateTime transTime { get; set; }
+        public string name { get; set; }
+    }
+      
+    public class OrderInfo
+    {
+        public double price { get; set; }
+        public int ProductNo { get; set; }
+        public string ProductName { get; set; }
+        public string PicName { get; set; }
+        public int qty { get; set; }
+    }
+    public class OrderViewModel
+    {
+
+        public List<OrderInfo> orders { get; set; }
+        public Payment payment { get; set; }
+        public int orderQty { get; set; }
+    }
 }

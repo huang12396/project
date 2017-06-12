@@ -8,6 +8,9 @@ namespace WebApplication2.Models.AccountViewModels
 {
     public class RegisterViewModel
     {
+        [Display(Name = "用户名")]
+        public string UserName { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
@@ -23,5 +26,17 @@ namespace WebApplication2.Models.AccountViewModels
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [Display(Name = "性别")]
+        public string CustomerSex { get; set; }
+
+        [Required]
+        [Display(Name = "QQ")]
+        public string QqNum { get; set; }
+
+        [RegularExpression(@"^1\d{10}$", ErrorMessage = "移动电话号码不符合格式.")]
+        [Display(Name = "联系电话")]
+        public string CustomerTel { get; set; }
     }
 }

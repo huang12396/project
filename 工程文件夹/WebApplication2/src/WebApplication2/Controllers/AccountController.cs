@@ -11,6 +11,8 @@ using Microsoft.Extensions.Logging;
 using WebApplication2.Models;
 using WebApplication2.Models.AccountViewModels;
 using WebApplication2.Services;
+using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace WebApplication2.Controllers
 {
@@ -22,19 +24,22 @@ namespace WebApplication2.Controllers
         private readonly IEmailSender _emailSender;
         private readonly ISmsSender _smsSender;
         private readonly ILogger _logger;
+        private readonly DBAlcoholContext db;
 
         public AccountController(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             IEmailSender emailSender,
             ISmsSender smsSender,
-            ILoggerFactory loggerFactory)
+            ILoggerFactory loggerFactory,
+            DBAlcoholContext alcoholDB)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
             _smsSender = smsSender;
             _logger = loggerFactory.CreateLogger<AccountController>();
+            db = alcoholDB;
         }
 
         //
@@ -43,6 +48,7 @@ namespace WebApplication2.Controllers
         [AllowAnonymous]
         public IActionResult Login(string returnUrl = null)
         {
+            ViewBag.Title = "登录";
             ViewData["ReturnUrl"] = returnUrl;
             return View();
         }
@@ -91,6 +97,7 @@ namespace WebApplication2.Controllers
         [AllowAnonymous]
         public IActionResult Register(string returnUrl = null)
         {
+            ViewBag.Title = "注册";
             ViewData["ReturnUrl"] = returnUrl;
             return View();
         }
@@ -109,6 +116,14 @@ namespace WebApplication2.Controllers
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    Customer c = db.Customer.Add(new Customer()).Entity;
+                    c.CustomerId = user.Id;
+                    c.CustomerUserName = model.Email;
+                    c.Email = model.Email;
+                    c.CustomerSex = model.CustomerSex;
+                    c.Qq = model.QqNum;
+                    c.CustomerTel = model.CustomerTel;
+                    db.SaveChanges();
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=532713
                     // Send an email with this link
                     //var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
@@ -435,6 +450,53 @@ namespace WebApplication2.Controllers
                 return View(model);
             }
         }
+
+        //会员中心
+        [Authorize]
+        public ActionResult MemberHome()
+        {
+            ViewBag.pwdDisp = "none";
+            string curName = User.Identity.Name;
+            MemberHomeModel mhm = new MemberHomeModel();
+            Customer c = db.Customer.Single(m => m.CustomerUserName == curName);
+            mhm.CustomerInfo = new RegisterViewModel { UserName = c.CustomerUserName, Email = c.CustomerUserName, CustomerSex = c.CustomerSex, QqNum = c.Qq, CustomerTel = (c.CustomerTel).ToString() };
+            return View("MemberHome", mhm);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> MemberHome(MemberHomeModel mhm)
+        {
+            string curUser = User.Identity.Name;
+            var c = await _userManager.FindByNameAsync(curUser);
+            Customer cust = db.Customer.Single(m => m.CustomerUserName == curUser);
+            int custId = ViewBag.uid = cust.CustomerId;
+            ViewBag.pwdDisp = "block";
+            IdentityResult r = await _userManager.ChangePasswordAsync(c, mhm.OldPassword, mhm.NewPassword);
+            if (r.Succeeded)
+            {
+                ViewBag.pwdDisp = "none";
+            }
+            else
+            {
+                await Response.WriteAsync("<script>alert('密码更新失败！');</script>");
+            }
+            mhm.CustomerInfo = new RegisterViewModel { UserName = cust.CustomerUserName, Email = cust.CustomerUserName, CustomerSex = cust.CustomerSex, QqNum = cust.Qq, CustomerTel = (cust.CustomerTel).ToString() };
+            return View("MemberHome", mhm);
+        }
+
+        //更新用户表
+        public async void updateMemberInfo(int memberId, string memberSex, string memberQq, string memberTel)
+        {
+            Customer c = db.Customer.Single(m => m.ObjId == memberId);
+            c.CustomerSex = memberSex;
+            c.Qq = memberQq;
+            c.CustomerTel = memberTel;
+            int result = db.SaveChanges();
+            Response.ContentType = "text/plain";
+            await Response.WriteAsync(result.ToString());
+        }
+
 
         #region Helpers
 
