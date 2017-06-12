@@ -13,7 +13,17 @@ namespace WebApplication2.Models
         public List<ProductList> disProducts { get; set; }
         public List<ProductCat> productCats { get; set; }
     }
+    public class PayRequestInfo
+    {
+        public string PostUrl { get; set; }
+        public string MerId { get; set; }
+        public string Amt { get; set; }
+        public string PaymentTypeObjId { get; set; }
+        public string MerTransId { get; set; }
+        public string ReturnUrl { get; set; }
+        public string CheckValue { get; set; }
 
+    }
     public class ProductList
     {
         public Product p { get; set; }

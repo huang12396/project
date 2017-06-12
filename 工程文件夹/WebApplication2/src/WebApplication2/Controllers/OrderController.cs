@@ -9,12 +9,14 @@ using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.AspNetCore.Http;
 using WebApplication2.Infrastructure;
 using Newtonsoft.Json;
-
+using Microsoft.AspNetCore.Identity;
 
 namespace WebApplication2.Controllers
 {
     public class OrderController : Controller
     {
+        private readonly UserManager<ApplicationUser> _userManager;
+
         private readonly DBAlcoholContext db;
         public OrderController(DBAlcoholContext _db)
         {
@@ -36,30 +38,62 @@ namespace WebApplication2.Controllers
             List<int[]> curCart = HttpContext.Session.GetJson<List<int[]>>("Cart");
             ovm.orderQty = 0;
             ovm.payment.Amount = 0.0;
+
             foreach (var OrdersItem in curCart)
             {
                 int curQty = OrdersItem[1];
                 ovm.orderQty += OrdersItem[1];
                 int pObjId = OrdersItem[0];
-                    //for (int i = 0; i < curCart.Count; i++)
-                    //{
-                        var product = db.Product.Single(m => int.Parse(m.ProductNo) == pObjId);
-                            ovm.orders.Add(new OrderInfo
-                            {
-                                ProductNo = int.Parse(product.ProductNo),
-                                price = (double)product.Price,
-                                ProductName = product.ProductName,
-                                qty = curQty,
-                                PicName = (from pr in db.Ppics where pObjId == int.Parse(pr.ProductNo) select pr.PicName).FirstOrDefault(),
-                            });
-                            ovm.payment.Amount += (int)product.Price;
-                        
-                    //}
-                
+                //for (int i = 0; i < curCart.Count; i++)
+                //{
+                var product = db.Product.Single(m => int.Parse(m.ProductNo) == pObjId);
+                ovm.orders.Add(new OrderInfo
+                {
+                    ProductNo = int.Parse(product.ProductNo),
+                    price = (double)product.Price,
+                    ProductName = product.ProductName,
+                    qty = curQty,
+                    PicName = (from pr in db.Ppics where pObjId == int.Parse(pr.ProductNo) select pr.PicName).FirstOrDefault(),
+
+                });
+                ovm.payment.Amount += (int)product.Price;
+                EntityEntry<Orders> o = db.Orders.Add(new Orders());
+
+                o.Entity.ProductNo = product.ProductName;
+                o.Entity.OrderId = "1";
+                o.Entity.OrderState = "0";
+                o.Entity.Amt = (double)product.Price;
+                o.Entity.OrderAddress = User.Identity.Name;
+                db.SaveChanges();
+                //}
+
             }
             ViewBag.Orders = ovm;
             return View("Order", ovm);
         }
+
+        [HttpPost]
+        public ActionResult Index(OrderViewModel ovm)
+        {
+            bool succeed = true;
+            int payId = 0;
+            int curZip;
+            EntityEntry<Payment> p = db.Payment.Add(new Payment());
+            p.Entity.PaymentState = 0;
+
+
+            payId = p.Entity.ObjId;
+            PayRequestInfo pri = new PayRequestInfo();
+            pri.Amt = Request.Form["paymentAmt"];
+            pri.MerId = "Team01";
+            pri.MerTransId = payId.ToString();
+            pri.PaymentTypeObjId = Request.Form["paymentType"];
+            pri.PostUrl = "http://10.0.14.129:8801/default.aspx";
+            pri.ReturnUrl = "http://" + Request.Host + Url.Action("Index", "Payment");
+            pri.CheckValue = RemotePost.getCheckValue(pri.MerId, pri.ReturnUrl, pri.PaymentTypeObjId, pri.Amt, pri.MerTransId);
+            return View("PayRequest", pri);
+        }
+      
+
     }
-    
 }
