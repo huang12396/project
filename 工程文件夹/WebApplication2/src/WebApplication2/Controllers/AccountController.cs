@@ -459,7 +459,7 @@ namespace WebApplication2.Controllers
             string curName = User.Identity.Name;
             MemberHomeModel mhm = new MemberHomeModel();
             Customer c = db.Customer.Single(m => m.CustomerUserName == curName);
-            mhm.CustomerInfo = new RegisterViewModel { UserName = c.CustomerUserName, Email = c.CustomerUserName, CustomerSex = c.CustomerSex, QqNum = c.Qq, CustomerTel = (c.CustomerTel).ToString() };
+            mhm.CustomerInfo = new RegisterViewModel { UserName = c.CustomerUserName, Email = c.CustomerUserName, CustomerSex = c.CustomerSex, QqNum = c.Qq, CustomerTel = c.CustomerTel };
             return View("MemberHome", mhm);
         }
 

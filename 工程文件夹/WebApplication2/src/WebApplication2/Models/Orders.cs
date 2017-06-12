@@ -17,6 +17,5 @@ namespace WebApplication2.Models
 
         public virtual Customer CustomerUserNameNavigation { get; set; }
         public virtual Payment PaymentNoNavigation { get; set; }
-        public virtual Product ProductNoNavigation { get; set; }
     }
 }

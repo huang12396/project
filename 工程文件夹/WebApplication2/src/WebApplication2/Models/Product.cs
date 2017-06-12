@@ -8,7 +8,6 @@ namespace WebApplication2.Models
         public Product()
         {
             Cart = new HashSet<Cart>();
-            Orders = new HashSet<Orders>();
             Pdetail = new HashSet<Pdetail>();
             Ppics = new HashSet<Ppics>();
         }
@@ -19,7 +18,6 @@ namespace WebApplication2.Models
         public decimal Price { get; set; }
 
         public virtual ICollection<Cart> Cart { get; set; }
-        public virtual ICollection<Orders> Orders { get; set; }
         public virtual ICollection<Pdetail> Pdetail { get; set; }
         public virtual ICollection<Ppics> Ppics { get; set; }
         public virtual Stock Stock { get; set; }

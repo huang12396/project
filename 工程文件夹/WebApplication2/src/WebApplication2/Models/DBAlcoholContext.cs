@@ -7,6 +7,7 @@ namespace WebApplication2.Models
     public partial class DBAlcoholContext : DbContext
     {
         public DBAlcoholContext(DbContextOptions<DBAlcoholContext> options) : base(options) { }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<AreaCounty>(entity =>
@@ -212,7 +213,7 @@ namespace WebApplication2.Models
 
                 entity.Property(e => e.Phone).HasColumnType("char(14)");
 
-                entity.Property(e => e.ProductNo).HasColumnType("varchar(20)");
+                entity.Property(e => e.ProductNo).HasColumnType("varchar(256)");
 
                 entity.HasOne(d => d.CustomerUserNameNavigation)
                     .WithMany(p => p.Orders)
@@ -223,11 +224,6 @@ namespace WebApplication2.Models
                     .WithMany(p => p.Orders)
                     .HasForeignKey(d => d.PaymentNo)
                     .HasConstraintName("OrderFK3");
-
-                entity.HasOne(d => d.ProductNoNavigation)
-                    .WithMany(p => p.Orders)
-                    .HasForeignKey(d => d.ProductNo)
-                    .HasConstraintName("OrderFK2");
             });
 
             modelBuilder.Entity<Payment>(entity =>
