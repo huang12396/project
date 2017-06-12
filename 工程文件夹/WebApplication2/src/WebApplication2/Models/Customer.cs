@@ -15,7 +15,7 @@ namespace WebApplication2.Models
         public string CustomerSex { get; set; }
         public string CustomerId { get; set; }
         public string CustomerPassword { get; set; }
-        public decimal? CustomerTel { get; set; }
+        public string CustomerTel { get; set; }
         public string Qq { get; set; }
         public string Email { get; set; }
         public string CustomerUserName { get; set; }
