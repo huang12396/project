@@ -39,7 +39,7 @@
                     <ul class="nav navbar-nav">
                         <li class=""><a asp-controller="Home" asp-action="Index">首页</a></li>
                         <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">购物导航<b class="caret"></b></a>
+                            <a class="dropdown-toggle" data-toggle="dropdown">购物导航<b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li>白酒</li>
                                 <li>葡萄酒</li>
@@ -50,18 +50,17 @@
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">我的账户<b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">账户资料</a></li>
+                                <li><a href="Account/MemberHome">账户资料</a></li>
                                 <li class="divider"></li>
-                                <li><a href="#">我的订单</a></li>
-                                <li><a href="">物流跟踪</a></li>
+                                <li><a href="Account/OrderList">我的订单</a></li>                                
                             </ul>
                         </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">客户服务<b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">常见问题</a></li>
-                                <li><a href="#">配送说明</a></li>
-                                <li><a href="">售后服务</a></li>
+                                <li>常见问题</li>
+                                <li>配送说明</li>
+                                <li>售后服务</li>
                             </ul>
                         </li>
                         <li><a asp-area="" asp-controller="Cart" asp-action="Index"><span class="glyphicon glyphicon-shopping-cart"></span>购物车</a></li>
