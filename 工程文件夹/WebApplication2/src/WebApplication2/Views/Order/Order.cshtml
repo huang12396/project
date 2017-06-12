@@ -28,45 +28,47 @@
             <img src="~/images/捕获.PNG" alt="">
 
         </div>
-        <!--收货地址-->
-        <div class="">
-            <h3>选择收货地址</h3>
-            
-            <div class="dizhi ">
-                <div class="col-sm-2">
-                    <p>省</p>
-                    <p>市</p>
-                    <p>区</p>
+        <form id="orderForm" action="~/Order" method="post">
+
+            <!--收货地址-->
+            <div class="">
+                <h3>选择收货地址</h3>
+
+                <div class="dizhi ">
+                    <div class="col-sm-2">
+                        <p>省</p>
+                        <p>市</p>
+                        <p>区</p>
+                    </div>
+                    <div class="col-sm-3">
+                        <p><input type="text" /></p>
+                        <p><input type="text" /></p>
+                        <p><input type="text" /></p>
+                    </div>
+                    <div class="col-sm-2">
+                        <p>收货人</p>
+                        <p>手机号</p>
+                        <p>固定电话</p>
+                    </div>
+                    <div class="col-sm-3">
+                        <p><input type="text" /></p>
+                        <p><input type="text" /></p>
+                        <p><input type="text" /></p>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-sm-2">
+                        <p>详细地址</p>
+
+                    </div>
+                    <div class="xxdz col-sm-10">
+                        <p><input type="text" /></p>
+
+                    </div>
                 </div>
-                <div class="col-sm-3">
-                    <p><input type="text" /></p>
-                    <p><input type="text" /></p>
-                    <p><input type="text" /></p>
-                </div>
-                <div class="col-sm-2">
-                    <p>收货人</p>
-                    <p>手机号</p>
-                    <p>固定电话</p>
-                </div>
-                <div class="col-sm-3">
-                    <p><input type="text" /></p>
-                    <p><input type="text" /></p>
-                    <p><input type="text" /></p>
-                </div>
-                <div class="clearfix"></div>
-                <div class="col-sm-2">
-                    <p>详细地址</p>
-                    
-                </div>
-                <div class="xxdz col-sm-10">
-                    <p><input type="text"/></p>
-                    
-                </div>
+
+
+
             </div>
-            
-           
-          
-        </div>
             <!--支付方式-->
             <div class="">
                 <h3>支付方式</h3>
@@ -78,55 +80,56 @@
                     <label><input name="Fruit" type="radio" value="" />微信支付</label>
                 </div>
             </div>
-       
-        <!--商品信息-->
-        <div class="shangpin">
-            <h3>确认订单信息</h3>
-            <div>
-                <table id="table" cellspacing="0" cellpadding="0"  width="100%" class="">
-                    <thead>
-                        <tr>
-                            <td width="8%" height="34">
-                                <input class="ck" name="checkbox" type="checkbox" id="allCheck">
-                                <label for="checkbox0_t" style="cursor: pointer;">全选</label>
-                            </td>
-                            <td width="20%">图片</td>
-                            <td width="20%">商品名称</td>
-                            <td width="20%">数量</td>
-                            <td width="20%">单价</td>
-                            <td width="20%">小计</td>
-                            
-                        </tr>
-                    </thead>
-                    <tbody id="tbody">
-                        @foreach (var cartItem in Model.orders)
-                        {
-                            <tr style="color:#330099;background-color:White;">
+
+            <!--商品信息-->
+            <div class="shangpin">
+                <h3>确认订单信息</h3>
+                <div>
+                    <table id="table" cellspacing="0" cellpadding="0" width="100%" class="">
+                        <thead>
+                            <tr>
                                 <td width="8%" height="34">
                                     <input class="ck" name="checkbox" type="checkbox" id="allCheck">
+                                    <label for="checkbox0_t" style="cursor: pointer;">全选</label>
                                 </td>
-                                <td style="border:1px solid;text-align:center;"><img src="~/images/@Model.orders[orderNo].PicName" /></td>
-                                <td style="border:1px solid;text-align:center;">@Model.orders[orderNo].ProductName </td>
-                                <td style="border:1px solid;text-align:center;">@Model.orders[orderNo].qty</td>
-                                <td style="border:1px solid;text-align:center;">@Model.orders[orderNo].price</td>
-                                <td style="border:1px solid;text-align:center;">@Model.payment.Amount</td>
-                            </tr>
-                            orderNo++;
-                        }
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <!--结算-->
-        <h3>结算信息</h3>
-        <div class="jiesuan">
-            <p>实付款：</p>
-               
+                                <td width="20%">图片</td>
+                                <td width="20%">商品名称</td>
+                                <td width="20%">数量</td>
+                                <td width="20%">单价</td>
+                                <td width="20%">小计</td>
 
-          
-            <input type="submit" name="" value="提交订单"/>
-        </div>
-        </div>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody">
+                            @foreach (var cartItem in Model.orders)
+                            {
+                                <tr style="color:#330099;background-color:White;">
+                                    <td width="8%" height="34">
+                                        <input class="ck" name="checkbox" type="checkbox" id="allCheck">
+                                    </td>
+                                    <td style="border:1px solid;text-align:center;"><img src="~/images/@Model.orders[orderNo].PicName" /></td>
+                                    <td style="border:1px solid;text-align:center;">@Model.orders[orderNo].ProductName </td>
+                                    <td style="border:1px solid;text-align:center;">@Model.orders[orderNo].qty</td>
+                                    <td style="border:1px solid;text-align:center;">@Model.orders[orderNo].price</td>
+                                    <td style="border:1px solid;text-align:center;">@Model.payment.Amount</td>
+                                </tr>
+                                orderNo++;
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!--结算-->
+            <h3>结算信息</h3>
+            <div class="jiesuan">
+                <p>实付款：</p>
+
+
+
+                <input class="bt1" type="submit" value="支付">
+            </div>
+            </form>
+</div>
    
     <script type="text/javascript" src="~/assets/js/server.js"></script>
     <script type="text/javascript" src="~/assets/js/index.js"></script>
