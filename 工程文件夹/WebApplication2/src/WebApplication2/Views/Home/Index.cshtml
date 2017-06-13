@@ -87,7 +87,10 @@
                     }                    
                     <div class="col-md-4">
                         <h3>酒类百科</h3>
-                        <p>随便打点东西看看先啦</p>
+                        @foreach (string s in ViewBag.news)
+                        {
+                            <a href="news.cshtml"><span style="font :15px 微软雅黑;color:steelblue;">@s</span></a><br />
+                        }
                     </div>
                 </div>
             </div>

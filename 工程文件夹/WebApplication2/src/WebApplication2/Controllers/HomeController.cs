@@ -18,6 +18,7 @@ namespace WebApplication2.Controllers
         public IActionResult Index()
         {
             ViewBag.Title = "主页";
+            ViewBag.news = new[] { "白酒的分类","葡萄酒怎么喝","洋酒的储藏方法", "用啤酒做菜" };
 
             HomeIndexViewModel ivm = new HomeIndexViewModel();
             ivm.recProducts = new List<ProductList>();
