@@ -470,7 +470,7 @@ namespace WebApplication2.Controllers
             string curUser = User.Identity.Name;
             var c = await _userManager.FindByNameAsync(curUser);
             Customer cust = db.Customer.Single(m => m.CustomerUserName == curUser);
-            int custId = ViewBag.uid = cust.CustomerId;
+            string custId = ViewBag.uid = cust.CustomerId;
             ViewBag.pwdDisp = "block";
             IdentityResult r = await _userManager.ChangePasswordAsync(c, mhm.OldPassword, mhm.NewPassword);
             if (r.Succeeded)
@@ -486,12 +486,13 @@ namespace WebApplication2.Controllers
         }
 
         //更新用户表
-        public async void updateMemberInfo(int memberId, string memberSex, string memberQq, string memberTel)
+        public async void updateMemberInfo(string memberSex, string memberQq, string memberTel)
         {
-            Customer c = db.Customer.Single(m => m.ObjId == memberId);
-            c.CustomerSex = memberSex;
-            c.Qq = memberQq;
+            string curName = User.Identity.Name;
+            Customer c = db.Customer.Single(m => m.CustomerUserName == curName);
+            c.CustomerSex = memberSex;            
             c.CustomerTel = memberTel;
+            c.Qq = memberQq;
             int result = db.SaveChanges();
             Response.ContentType = "text/plain";
             await Response.WriteAsync(result.ToString());
