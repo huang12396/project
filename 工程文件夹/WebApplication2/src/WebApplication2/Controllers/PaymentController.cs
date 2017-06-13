@@ -21,8 +21,13 @@ namespace WebApplication2.Controllers
             if (RemotePost.PaymentVerify(Request, out merId, out amt, out merTransId, out transId, out transTime) && merId == "Team01")
             {
                 ViewBag.paymentMsg = "付款成功！     付款号：" + merTransId.ToString() + "；   金额：" + amt.ToString() + "元。";//付款成功！显示付款信息作为测试。
-
-            }
+                Payment payment = db.Payment.Single(m => m.ObjId == int.Parse(merTransId));
+                
+                    payment.PaymentState = 1;
+                payment.Amount = double.Parse(amt);
+                    db.SaveChanges();
+                
+                          }
 
             return View();
         }

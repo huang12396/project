@@ -23,7 +23,7 @@ namespace WebApplication2.Controllers
             db = _db;
         }
         static decimal amount = 0;
-
+        static int id;
         [Authorize]
         public ActionResult Index()
         {
@@ -41,6 +41,14 @@ namespace WebApplication2.Controllers
             List<int[]> curCart = HttpContext.Session.GetJson<List<int[]>>("Cart");
             ovm.orderQty = 0;
             ovm.payment.Amount = 0.0;
+
+            EntityEntry<Payment> d = db.Payment.Add(new Payment());
+            DateTime da = DateTime.Now;
+            d.Entity.TransTime = da;
+            db.SaveChanges();
+
+            var get = db.Payment.Single(m => m.TransTime == da);
+            id = get.ObjId;
 
             foreach (var OrdersItem in curCart)
             {
@@ -64,7 +72,8 @@ namespace WebApplication2.Controllers
                 EntityEntry<Orders> o = db.Orders.Add(new Orders());
 
                 o.Entity.ProductNo = product.ProductName;
-                o.Entity.OrderId = "1";
+                o.Entity.OrderId = id.ToString();
+                o.Entity.PaymentNo = id;
                 o.Entity.OrderState = "0";
                 o.Entity.Amt = (double)product.Price;
                 o.Entity.OrderAddress = User.Identity.Name;
@@ -91,7 +100,7 @@ namespace WebApplication2.Controllers
             PayRequestInfo pri = new PayRequestInfo();
             pri.Amt = amount.ToString();
             pri.MerId = "Team01";
-            pri.MerTransId = payId.ToString();
+            pri.MerTransId = id.ToString();
             pri.PaymentTypeObjId = Request.Form["paymentType"];
             pri.PostUrl = "http://payportal.chinacloudsites.cn";
             pri.ReturnUrl = "http://" + Request.Host + Url.Action("Index", "Payment");
