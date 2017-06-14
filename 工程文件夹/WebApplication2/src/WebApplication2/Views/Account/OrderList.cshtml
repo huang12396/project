@@ -4,27 +4,29 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.contBuy = "/";
 }
-<table>
-    <td style="vertical-align:top;">
-        <h3>订单一览</h3>
-        <table border="1" style="border-width:1px;border-collapse:collapse;width:100%;">
-            <tr>
-                <th>产品名</th>
-                <th>图片</th>
-                <th>金额</th>
-                <th>付款时间</th>
-                <th>订单状态</th>
-            </tr>
-            @foreach (var cartItem in Model.Order)
-            {
+<div align="center">
+    <table >
+        <td style="vertical-align:top;">
+            <h3 style="font-size:14px;">订单一览</h3>
+            <table border="1" style="border-width:1px;border-collapse:collapse;width:100%;">
                 <tr>
-                    <td>@cartItem.productName</td>
-                    <td><img src="/images/@cartItem.PicName" style="width:120px;height:120px" /></td>
-                    <td>@cartItem.amt</td>
-                    <td>@cartItem.transTime</td>
-                    <td>@cartItem.orderState</td>
+                    <th scope="col" style="text-align:center;">产品名</th>
+                    <th scope="col" style="text-align:center;">图片</th>
+                    <th scope="col" width=100px; style="text-align:center;">金额</th>
+                    <th scope="col" style="text-align:center;">付款时间</th>
+                    <th scope="col" style="text-align:center;">订单状态</th>
                 </tr>
-            }
-        </table>
-    </td>
-</table>
+                @foreach (var cartItem in Model.Order)
+            {
+                    <tr>
+                        <td scope="row" align="center">@cartItem.productName</td>
+                        <td scope="row" align="center"><img src="/images/@cartItem.PicName" style="width:120px;height:120px" /></td>
+                        <td scope="row" align="center">￥@cartItem.amt</td>
+                        <td scope="row" align="center">@cartItem.transTime</td>
+                        <td scope="row" align="center">@cartItem.orderState</td>
+                    </tr>
+                }
+            </table>
+        </td>
+    </table>
+</div>

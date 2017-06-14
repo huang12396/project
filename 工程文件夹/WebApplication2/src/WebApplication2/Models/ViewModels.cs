@@ -75,7 +75,7 @@ namespace WebApplication2.Models
     public class OrderList
     {
         public DateTime orderTime { get; set; }
-        public double amt { get; set; }
+        public decimal amt { get; set; }
         public string orderState { get; set; }
         public string productName { get; set; }
         public string PicName { get; set; }
