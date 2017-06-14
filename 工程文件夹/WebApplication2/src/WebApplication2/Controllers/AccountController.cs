@@ -498,6 +498,62 @@ namespace WebApplication2.Controllers
             await Response.WriteAsync(result.ToString());
         }
 
+        //订单一览表
+        [Authorize]
+        public ActionResult OrderList()
+        {
+            ViewBag.pwdDisp = "none";
+            string[] orderStates = { "已付款", "初始", "已发送", "已签收" };
+            string curName = User.Identity.Name;
+            MemberHomeModel mhm = new MemberHomeModel();
+            mhm.Order = new List<OrderList>();
+            Customer c = db.Customer.Single(m => m.CustomerUserName == curName);
+            string custName = ViewBag.uid = c.CustomerUserName;
+            var orderlist = from a in db.Orders
+                            join b in db.Product on a.ProductNo equals b.ProductName
+                            join n in db.Ppics on b.ProductNo equals n.ProductNo
+                            join p in db.Payment on a.PaymentNo equals p.ObjId
+                            where int.Parse(a.OrderState) < 4 && a.OrderAddress == custName && int.Parse(n.PicType) == 0
+                            //&& int.Parse(n.PicType) equals 0
+                            //join n in db.Ppics on new { id = a.ProductNo, type = 1 } equals new { id = n.ProductNo, type = int.Parse(n.PicType) }
+                            //orderby p.TransTime descending
+                            select new { amt = a.Amt,
+
+                                productName = a.ProductNo,
+                                transTime = p.TransTime,
+                                orderState = int.Parse(a.OrderState),
+                                picName = n.PicName,
+                            };
+
+
+
+
+                            //select new
+                            //{
+                            //    amt = a.Amt,
+
+
+                            //   
+
+                            //};
+
+                var orders = orderlist;
+                foreach (var o in orders)
+                {
+                    mhm.Order.Add(new OrderList
+                    {
+                        amt = (double)(o.amt),
+                        orderState = orderStates[o.orderState],
+                        productName = o.productName,
+                        PicName = o.picName,
+                        transTime = o.transTime == null ? default(DateTime) : o.transTime.Value,
+                    });
+                }
+
+            return View("OrderList", mhm);
+        }
+
+
 
         #region Helpers
 

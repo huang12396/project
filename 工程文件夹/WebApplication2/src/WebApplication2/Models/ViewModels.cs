@@ -55,6 +55,7 @@ namespace WebApplication2.Models
         public string ConfirmPassword { get; set; }
         //public LocalPasswordModel PassWordModel { get; set; }
         public RegisterViewModel CustomerInfo { get; set; }
+        public List<OrderList> Order { get; set; }
     }
     public class ProductDtl
     {
