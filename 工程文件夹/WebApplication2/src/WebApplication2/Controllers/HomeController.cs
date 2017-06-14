@@ -48,7 +48,7 @@ namespace WebApplication2.Controllers
 
                 ivm.recProducts.Add(pl);
             }
-
+            
             //获取优惠商品(6种)
             var disProducts = db.Product.Where<Product>(m => m.ProductId > 001).OrderBy<Product, float>(m => (float)m.Price).Take<Product>(6);
             foreach (var p in disProducts)

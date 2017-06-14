@@ -10,17 +10,20 @@ using Microsoft.AspNetCore.Http;
 using WebApplication2.Infrastructure;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Hosting;
 
 namespace WebApplication2.Controllers
 {
     public class OrderController : Controller
     {
+        private IHostingEnvironment host = null;
         private readonly UserManager<ApplicationUser> _userManager;
 
         private readonly DBAlcoholContext db;
-        public OrderController(DBAlcoholContext _db)
+        public OrderController(DBAlcoholContext _db,IHostingEnvironment _host)
         {
             db = _db;
+            host = _host;
         }
         static decimal amount = 0;
         static int id;
@@ -104,7 +107,7 @@ namespace WebApplication2.Controllers
             pri.PaymentTypeObjId = Request.Form["paymentType"];
             pri.PostUrl = "http://payportal.chinacloudsites.cn";
             pri.ReturnUrl = "http://" + Request.Host + Url.Action("Index", "Payment");
-            pri.CheckValue = RemotePost.getCheckValue(pri.MerId, pri.ReturnUrl, pri.PaymentTypeObjId, pri.Amt, pri.MerTransId);
+            pri.CheckValue = RemotePost.getCheckValue(host .WebRootPath, pri.MerId, pri.ReturnUrl, pri.PaymentTypeObjId, pri.Amt, pri.MerTransId);
             return View("PayRequest", pri);
         }
       
