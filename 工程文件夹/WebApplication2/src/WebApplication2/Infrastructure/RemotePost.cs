@@ -17,7 +17,7 @@ namespace WebApplication2.Infrastructure
     {
         public static string getCheckValue(string merchantId, string returnUrl, string paymentTypeObjId, string amtStr, string merTransId)
         {
-            string xmlKey = File.ReadAllText("D:\\" + merchantId + ".xml");
+            string xmlKey = File.ReadAllText( merchantId + ".xml");
             RSAParameters PrvKeyInfo = RSAUtility.GetPrvKeyFromXmlString(xmlKey);
             RSACng rsa = new RSACng();
             rsa.ImportParameters(PrvKeyInfo);
@@ -36,7 +36,7 @@ namespace WebApplication2.Infrastructure
             transId = curRequest.Form["transId"].ToString();
             transTime = curRequest.Form["transTime"].ToString();
             string checkValue = curRequest.Form["checkValue"].ToString();
-            string PaymentPublicKey = File.ReadAllText("d:\\PaymentPublicKey.txt");
+            string PaymentPublicKey = File.ReadAllText("PaymentPublicKey.txt");
             RSAParameters PubKeyInfo = RSAUtility.GetPubKeyFromXmlString(PaymentPublicKey);
             string orgString = merId + merTransId + amt + transId + transTime;
             ASCIIEncoding byteConverter = new ASCIIEncoding();
