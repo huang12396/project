@@ -1,6 +1,7 @@
 ﻿@{
     ViewBag.Title = "Cart";
     int cartRow = 0;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @using WebApplication2.Models;
 <script>
@@ -39,6 +40,25 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="~/assets/css/style_cart.css">
+    <style>
+        table{
+	text-align: center;
+}
+button{
+    width:30px;
+}
+.footer {
+    position:center;
+    margin-top: 20px;
+    margin-bottom:0;   
+    background-color: #FFCCCC;
+    max-height:200px;
+}
+.container{
+    min-height:750px;
+
+}
+    </style>
 </head>
 <body>
     <div class="container">

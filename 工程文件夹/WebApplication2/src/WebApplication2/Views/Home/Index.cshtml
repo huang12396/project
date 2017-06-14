@@ -8,7 +8,172 @@
     <meta charset="utf-8" http-equiv="content-type" content="text/html">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
     <link rel="stylesheet" type="text/css" href="~/assets/css/style_index.css"> 
-    
+    <style>              
+* {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+body {
+    font-size: 13px;
+    line-height: 2em;
+    color: #666666;
+}
+
+
+/*导航栏*/
+
+.top {
+    background-color: #FFFFFF;
+    padding: 0.7em 0;
+    height: 40px;
+    margin-bottom: 15px;
+}
+
+.navbar-brand {
+    padding: 0 0;
+}
+
+    .navbar-brand > img {
+        height: 60px;
+        margin-right: 15px;
+        margin-top: 5px;
+        width: 200px;
+    }
+
+.navbar-default {
+    box-shadow: 12px -5px 40px -12px;
+}
+
+.glyphicon {
+    font-size: 13px;
+}
+
+.body {
+    padding-top: 100px;
+}
+
+
+/*链接*/
+
+a {
+    font-size: 12px;
+    text-decoration: none;
+    border: 0;
+    color: #666666;
+    text-decoration: none;
+    -webkit-transition-property: color;
+    -moz-transition-property: color;
+    -o-transition-property: color;
+    transition-property: color;
+    -webkit-transition-duration: .2s;
+    -webkit-transition-timing-function: ease-in;
+    -moz-transition-duration: .2s;
+    -moz-transition-timing-function: ease-in;
+    -o-transition-duration: .2s;
+    -o-transition-timing-function: ease-in;
+    transition-duration: .2s;
+    transition-timing-function: ease-in;
+}
+
+    a:hover {
+        color: #cd0606;
+        text-decoration: underline;
+    }
+
+.dh_nav {
+    z-index: 1;
+    position: relative;
+    width: 200px;
+    margin: 0px 50px 0 30px;
+}
+
+.dh_nac .dhbtn {
+    z-index: 1;
+    position: relative;
+}
+
+.dh_nav .dhbtn h2 {
+    font-size: 16px;
+    text-align: center;
+    font-family: 微软雅黑, 黑体;
+}
+
+
+/*banner*/
+
+.carousel {
+    height: auto;
+    background-color: #FFF;
+    margin-top: 150px;
+}
+
+    .carousel .item {
+        height: auto;
+        background-color: #FFF;
+    }
+
+    .carousel img {
+        width: 100%;
+    }
+
+
+/*优惠推荐*/
+
+.discount {
+    padding: 0.5em 0;
+    margin: 1em 0;
+    border: 1px solid #eee;
+}
+
+    .discount h1 {
+        color: #1A1A1A;
+        font-size: 2em;
+        font-weight: 600;
+        padding: 0 0 0.5em;
+        border-bottom: 2px solid #eee;
+    }
+
+    .discount .list dd {
+        color: #C15162;
+        font-size: 1.0em;
+        font-weight: 400;
+        margin: 0.3em 0;
+    }
+
+    .discount a {
+        color: #FF3300;
+    }
+
+        .discount a:hover {
+            color: #996600;
+        }
+
+a .addtocart {
+    display: block;
+    /*占据一整行*/
+    font-size: 1em;
+    font-weight: 400;
+    color: #FFF;
+    background-color: #663300;
+    padding: 10px 18px;
+    transition: 0.8s all ease;
+    /*0.8 秒的背景颜色渐变过渡*/
+    border-radius: 3px;
+    /*圆角边框*/
+    text-decoration: none;
+    /*用于去掉超链接文字的下划线。 */
+}
+
+    a .addtocart:hover {
+        background-color: #00FF66;
+    }
+    </style>
     <title>主页</title>
 </head>
 <body>

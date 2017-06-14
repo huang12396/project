@@ -170,3 +170,7 @@ body {
 .forget-password{
   float: right;
 }
+.container {
+margin-left:0px;
+margin-right:0px;
+}
